@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世説新鬼 —神のゴミを拾う男— - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『世説新鬼 —神のゴミを拾う男—』の作品レビュー。">
+    
+    <!-- Google Fonts: 中華ゴシック・筆記風と等幅フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景演出: 妖しい緑の燐火、錯金琉璃の金糸血管脈動、半透明ガラスオーバーレイ -->
+    <div class="ghost-fire-layer"></div>
+    <div class="gold-veins-bg"></div>
+    <div class="glass-crack-overlay" id="crack-overlay"></div>
+
+    <div class="container">
+        <!-- 浮遊式戻るボタン (EXIT TERM) -->
+        <a href="../index.html" class="back-link-floating">
+            <i class="fa-solid fa-person-walking-arrow-right"></i> DISCONNECT FROM DWEI_NET
+        </a>
+
+        <!-- 社畜中華パンクヘッダー -->
+        <header class="punk-header">
+            <div class="system-status-ticker">
+                <span class="ticker-text"><i class="fa-solid fa-skull"></i> CITADEL: WEI_NET // DIVISION: SI-TIAN-JIAN (司天監) // BUDGET DEFICIT: CRITICAL // TASK: WASTE PROCESSING</span>
+            </div>
+            
+            <div class="header-main-layout">
+                <div class="titles-block">
+                    <span class="threat-badge text-amber"><i class="fa-solid fa-dumpster-fire"></i> SUBJECT: RULING CLASS TREASON (REBELLION PLAN IN PROGRESS)</span>
+                    <h1 class="novel-title">世説新鬼<br><span class="subtitle">—神のゴミを拾う男—</span></h1>
+                </div>
+                
+                <!-- 謝必安の残寿命・予算管理パネル -->
+                <div class="monitor-panel" id="budget-panel">
+                    <div class="panel-header">PM STATUS (謝必安社畜ステータス)</div>
+                    <div class="panel-body">
+                        <div class="status-row-pm">
+                            <span class="label">残ライフ (残寿命):</span>
+                            <div class="meter-gauge">
+                                <div class="gauge-fill bg-amber" id="life-bar" style="width: 45%;"></div>
+                                <span class="gauge-val" id="life-txt">45%</span>
+                            </div>
+                        </div>
+                        <div class="status-row-pm">
+                            <span class="label">運営予算残高:</span>
+                            <strong class="text-green blink-fast">赤字超過 (OVERDUE)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メイングリッド -->
+        <main class="grid-layout">
+            <!-- 左カラム: あらすじ & 世界観 -->
+            <div class="main-column">
+                
+                <!-- セクション: あらすじ -->
+                <section class="section-card border-amber">
+                    <div class="card-header">
+                        <h2 class="section-title text-amber"><i class="fa-solid fa-scroll"></i> OFFICIAL RECORD: SUMMARY</h2>
+                        <span class="stamp-confidential">DWEI_SECURED</span>
+                    </div>
+                    
+                    <div class="story-body">
+                        <h3 class="quote-header">「社畜的ブラックユーモア×中華ダークファンタジー！」</h3>
+                        <p class="para">
+                            舞台は、長生（不老不死）を妄執する皇帝と、それをいいことに全土の民を犠牲にして巨大な陣法「天を窃み柱を換う」を敷く国師・李泌が支配する大魏帝国。
+                        </p>
+                        <p class="para">
+                            主人公は、司天監の雑項科で「ゴミ拾い（穢物処理）」をやらされている底辺役人の謝必安（シャ・ビアン）。
+                            彼は現代のブラック企業さながらの劣悪な労働環境と予算不足に毒を吐きながらも、自らの命を削って穢物をガラスに変える「錯金琉璃」の術で怪異を処理していく。
+                        </p>
+                        <p class="para">
+                            彼とひょんなことから相棒となった特務機関の堅物武官・沈無（シェン・ウー）は、共に「国庫の赤字鬼」や「人を土鍋に変える毒霧」など狂った怪異に立ち向かい、やがて大魏の国運を揺るがす国師の陰謀を内側からぶっ壊すための大反逆へと身を投じていく！
+                        </p>
+                    </div>
+                </section>
+
+                <!-- セクション: 世界観と妖怪パンクビジュアル -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-wand-sparkles"></i> YOKAI-PUNK & DESIGN METAPHOR</h2>
+                    </div>
+                    
+                    <div class="world-intro">
+                        <h3>怪異とIT・プロジェクト管理の融合</h3>
+                        <p>「物理的ファイアウォール」「不良債権」「デッドライン」などの現代プロジェクト用語が、古代の中華魔術や陣法の解説にメタファーとして使われる『妖怪パンク』。古代の頽廃と、乾いたサイバーユーモアが混ざり合う独自の世界観です。</p>
+                    </div>
+
+                    <div class="contrast-layout">
+                        <div class="side-card border-amber-sub">
+                            <h4>「錯金琉璃」の美学</h4>
+                            <p>怪異を封じた透明なガラスの中に、熱く煮えたぎる金色の血管（金糸）が脈打つデザイン。サイトの随所に走るゴールドラインで表現。</p>
+                        </div>
+                        
+                        <div class="side-card border-green-sub">
+                            <h4>歓楽街と「鬼市」の退廃</h4>
+                            <p>極彩色に淫靡に光る歓楽街「忘憂閣」のピンクと、その地下に蠢く死臭まみれの鬼市の「緑色の燐火」による強烈なコントラスト。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右カラム: キャラクター & 錯金琉璃コンソール -->
+            <div class="side-column">
+                
+                <!-- セクション: 人物調書 -->
+                <section class="section-card border-amber char-panel">
+                    <div class="card-header">
+                        <h2 class="section-title text-amber"><i class="fa-solid fa-user-tag"></i> CHARACTERS (はぐれ者調書)</h2>
+                    </div>
+                    
+                    <div class="char-tabs-layout">
+                        <div class="char-tab-list" id="char-tab-list">
+                            <button class="char-btn active" data-char="xie">謝必安</button>
+                            <button class="char-btn" data-char="shen">沈無</button>
+                            <button class="char-btn" data-char="su">蘇小小</button>
+                            <button class="char-btn" data-char="cats">猫神獣・妹</button>
+                        </div>
+                        
+                        <div class="char-content-wrapper" id="char-content">
+                            <!-- 謝必安 -->
+                            <div class="char-pane active" id="pane-xie">
+                                <div class="char-meta">
+                                    <span class="role text-amber">WASTE PROCESSOR / CYNICAL HERO</span>
+                                    <h3>謝必安 (シャ・ビアン)</h3>
+                                </div>
+                                <p class="char-desc">司天監の雑項科に属する「ゴミ拾い」。酒臭く、皮肉屋で借金まみれ。現代社会の社畜のような思考を持ち、命を削って「錯金琉璃」を発動し、怪異をガラス質に変質させ処理する。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">社畜ストレス:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">錯金琉璃能力:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">口癖:</span> <span class="val text-amber">「予算がないので定時退社します」</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- 沈無 -->
+                            <div class="char-pane" id="pane-shen">
+                                <div class="char-meta">
+                                    <span class="role text-amber">JING-YAO-SI COMMANDER / SOLID SWORDSMAN</span>
+                                    <h3>沈無 (シェン・ウー)</h3>
+                                </div>
+                                <p class="char-desc">鏡妖司の冷徹な特務武官。重厚な「百辟喪門刀」を振るう最強の物理アタッカー。最初は謝必安を警戒していたが、彼の有能さと過酷な実態に感化され、最高の共犯者となっていく。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">物理切断力:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">そろばん技術:</span> <span class="val">鏡妖司仕込みの勘定</span></div>
+                                    <div class="s-row"><span class="lbl">武具:</span> <span class="val">百辟喪門刀 (へきひゃくそうもんとう)</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 蘇小小 -->
+                            <div class="char-pane" id="pane-su">
+                                <div class="char-meta">
+                                    <span class="role text-amber">COURTESAN / BLACK-MARKET DOCTOR</span>
+                                    <h3>蘇小小 (スー・シャオシャオ)</h3>
+                                </div>
+                                <p class="char-desc">歓楽街「忘憂閣」の花魁であり、鬼市の情報屋。謝必安の崩壊しかかった肉体を黄金の糸で縫い合わせる（金繕い）凄腕の闇医者でもある。法外な治療費で謝必安の借金を膨らませるドS美女。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">金繕い外科:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">ドS取り立て:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">立場:</span> <span class="val">忘憂閣の女王</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 猫神獣・妹 -->
+                            <div class="char-pane" id="pane-cats">
+                                <div class="char-meta">
+                                    <span class="role text-gray">COMPANIONS</span>
+                                    <h3>神獣のデブ猫 ＆ 盲目の妹</h3>
+                                </div>
+                                <div class="scroll-box">
+                                    <div class="sub-entry">
+                                        <strong>阿奴 ＆ 銜蟬 <span class="label text-amber">神獣双猊</span></strong>
+                                        <p>阿奴は潔癖症の銀猫（氷霊気）。銜蟬は何でも丸呑みするデブ金猫で、ピンチの時は巨大化して敵を噛み砕く肉壁兼ゴミ箱。</p>
+                                    </div>
+                                    <div class="sub-entry">
+                                        <strong>謝知微 <span class="label text-red">盲目の妹 / 百鬼操術</span></strong>
+                                        <p>謝必安の妹。人柱として幽閉されているが、自らの血液で地獄の百鬼を操るブラコン気味の過激な美少女。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- セクション: 錯金琉璃の術・怪異処理コンソール -->
+                <section class="section-card border-red glass-section">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-glass-water-droplet"></i> ANOMALY PROCESSING TERMINAL</h2>
+                    </div>
+                    
+                    <div class="anomaly-board">
+                        <div class="anomaly-target">
+                            <span class="target-label">処理対象怪異 (CURRENT ANOMALY)</span>
+                            <div class="target-name" id="target-name">太歳肉芝（たいさいにくし）の巨大肉塊</div>
+                        </div>
+                        
+                        <div class="console-screen">
+                            <div class="console-flow" id="console-flow">
+                                <p class="sys-msg">>> [司天監] 雑項科 端末稼働。予算：枯渇</p>
+                                <p class="sys-msg">>> 太歳肉芝が地下から肥大化中。至急処理を求む。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="console-actions">
+                            <button class="glass-btn" id="btn-cast-ruri"><i class="fa-solid fa-gem"></i> 錯金琉璃（さっきんるり）を発動</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="punk-footer">
+            <p class="archived-date">LOG_INDEX: #WEI-0016 // SUBJECT TO REBELLION // ARCHIVE TERMINATION</p>
+            <div class="footer-actions">
+                <a href="../index.html" class="back-link-bottom"><i class="fa-solid fa-person-walking-arrow-right"></i> DISCONNECT FROM DWEI_NET</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

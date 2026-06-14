@@ -1,0 +1,711 @@
+/* ==========================================================================
+   STYLE SHEET: DARK GODDESS (常闇の女神)
+   ========================================================================== */
+
+:root {
+    --bg-darker: #06080c;
+    --bg-dark: #0d121a;
+    --bg-panel: #141c28;
+    --border-color: #243347;
+    
+    --cyan-neon: #00e5ff;
+    --cyan-glow: rgba(0, 229, 255, 0.4);
+    
+    --silver: #b5c7d3;
+    --silver-glow: rgba(181, 199, 211, 0.2);
+    
+    --text-primary: #ecf3f8;
+    --text-muted: #8fa0b0;
+    
+    --font-heading: 'Cinzel', serif;
+    --font-serif: 'Noto Serif JP', serif;
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-darker);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/* 背景演出 layers */
+.darkness-aura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(181, 199, 211, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+    animation: aura-pulse 10s infinite alternate;
+}
+
+@keyframes aura-pulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.lightning-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.marble-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* コンテナ */
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 戻るボタン */
+.back-link-floating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    background: rgba(13, 18, 26, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.back-link-floating:hover {
+    color: var(--cyan-neon);
+    border-color: var(--cyan-neon);
+    box-shadow: 0 0 10px var(--cyan-glow);
+    transform: translateY(-2px);
+}
+
+/* ヘッダー */
+.goddess-header {
+    border: 1px solid var(--border-color);
+    background: rgba(20, 28, 40, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 229, 255, 0.03);
+}
+
+.goddess-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cyan-neon), var(--silver));
+}
+
+.system-status-ticker {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-text {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.header-main-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.titles-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.threat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    margin-bottom: 12px;
+}
+
+.text-cyan {
+    color: var(--cyan-neon);
+    text-shadow: 0 0 5px var(--cyan-glow);
+}
+
+.novel-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+.novel-title .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    display: block;
+    margin-top: 5px;
+}
+
+/* 神殿建築度メーター */
+.monitor-panel {
+    background: rgba(6, 8, 12, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    width: 320px;
+    padding: 12px;
+    font-family: var(--font-mono);
+}
+
+.panel-header {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+}
+
+.meter-gauge {
+    height: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gauge-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0d5c75, var(--cyan-neon));
+    box-shadow: 0 0 10px var(--cyan-glow);
+    transition: width 1s ease-out;
+}
+
+.progress-pct {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+.meter-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* グリッドレイアウト */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* カード共通 */
+.section-card {
+    background: rgba(13, 18, 26, 0.85);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+}
+
+.stamp-deity {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    color: var(--cyan-neon);
+    padding: 2px 6px;
+    border-radius: 3px;
+    transform: rotate(4deg);
+    text-shadow: 0 0 5px var(--cyan-glow);
+    background: rgba(0, 229, 255, 0.05);
+}
+
+/* ボーダーバリエーション */
+.border-cyan {
+    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow: inset 0 0 15px rgba(0, 229, 255, 0.05);
+}
+
+.border-cyan:hover {
+    border-color: var(--cyan-neon);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.15), inset 0 0 15px rgba(0, 229, 255, 0.05);
+}
+
+.border-dark {
+    border-color: var(--border-color);
+}
+
+/* ストーリー */
+.quote-header {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    border-left: 3px solid var(--cyan-neon);
+    padding-left: 12px;
+    margin-bottom: 18px;
+}
+
+.para {
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+/* 世界観設定 */
+.world-intro {
+    margin-bottom: 20px;
+}
+
+.world-intro h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.world-intro p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.contrast-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .contrast-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.side-card {
+    background: rgba(6, 8, 12, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.side-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.side-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.border-cyan-sub {
+    border-color: rgba(0, 229, 255, 0.2);
+}
+
+.border-cyan-sub h4 {
+    color: var(--cyan-neon);
+}
+
+.border-silver-sub {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-silver-sub h4 {
+    color: var(--silver);
+}
+
+/* キャラクター調書 */
+.char-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.char-tabs-layout {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 500px) {
+    .char-tabs-layout {
+        flex-direction: column;
+    }
+}
+
+.char-tab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 130px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+    .char-tab-list {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+}
+
+.char-btn {
+    background: rgba(6, 8, 12, 0.8);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 10px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 500px) {
+    .char-btn {
+        text-align: center;
+        flex: 1;
+        white-space: nowrap;
+    }
+}
+
+.char-btn:hover {
+    color: var(--text-primary);
+    border-color: rgba(0, 229, 255, 0.4);
+    background: rgba(0, 229, 255, 0.03);
+}
+
+.char-btn.active {
+    color: #fff;
+    border-color: var(--cyan-neon);
+    background: rgba(0, 229, 255, 0.15);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.char-content-wrapper {
+    flex-grow: 1;
+    background: rgba(6, 8, 12, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+    min-height: 220px;
+    position: relative;
+}
+
+.char-pane {
+    display: none;
+    height: 100%;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.char-pane.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.char-meta {
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.char-meta .role {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.char-meta h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: var(--font-serif);
+}
+
+.char-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.char-stats {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.s-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.s-row:last-child {
+    margin-bottom: 0;
+}
+
+.s-row .lbl {
+    color: var(--text-muted);
+}
+
+.s-row .val {
+    color: var(--text-primary);
+}
+
+.s-row .rating {
+    color: var(--cyan-neon);
+    letter-spacing: 1px;
+}
+
+/* シミュレーター */
+.sim-board {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sim-display {
+    background: #030508;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px;
+    height: 120px;
+    overflow-y: auto;
+}
+
+.screen-log {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--cyan-neon);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.screen-log p {
+    margin: 0;
+}
+
+.screen-log .sys-msg {
+    color: var(--text-muted);
+}
+
+.screen-log .progress-msg {
+    color: var(--cyan-neon);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--cyan-glow);
+}
+
+.screen-log .victory-msg {
+    color: #eab308;
+    font-weight: bold;
+}
+
+.sim-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sim-btn {
+    background: rgba(20, 28, 40, 0.8);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 10px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sim-btn:hover {
+    border-color: var(--cyan-neon);
+    background: rgba(0, 229, 255, 0.05);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+}
+
+.sim-btn:active {
+    transform: translateY(1px);
+}
+
+.sim-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: var(--border-color);
+    background: rgba(6, 8, 12, 0.6);
+}
+
+/* フッター */
+.goddess-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.archived-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.back-link-bottom {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 8px 20px;
+    border: 1px solid var(--border-color);
+    background: rgba(20, 28, 40, 0.5);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.back-link-bottom:hover {
+    color: var(--cyan-neon);
+    border-color: var(--cyan-neon);
+    box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+/* 雷・フラッシュ効果 */
+.flash-white {
+    animation: flash-frame 0.3s ease-out;
+}
+
+@keyframes flash-frame {
+    0% { background-color: rgba(255, 255, 255, 0.4); }
+    100% { background-color: transparent; }
+}
+
+/* 雷エフェクトキャンバス用 */
+.bolt-line {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 8px var(--cyan-neon), 0 0 15px #fff;
+    pointer-events: none;
+    transform-origin: 0 50%;
+}

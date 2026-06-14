@@ -1,0 +1,826 @@
+/* ==========================================================================
+   STYLE SHEET: SHACHIKU SAINT (NO MORE SHACHIKU)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Variables & Base Settings
+   -------------------------------------------------------------------------- */
+:root {
+    --bg-parchment: #faf6ee;        /* 羊皮紙の明るいベージュ */
+    --bg-dark-parchment: #f0e6d2;
+    --bg-panel: #ffffff;
+    --border-color: #d8cdb8;
+    
+    --botanical-green: #2a6f47;     /* 延命草・アースグリーン */
+    --botanical-green-glow: rgba(42, 111, 71, 0.2);
+    
+    --royal-gold: #c29953;          /* 高貴なゴールド */
+    --royal-gold-glow: rgba(194, 153, 83, 0.4);
+    
+    --text-dark: #2c251b;           /* 万年筆のインクのような焦げ茶 */
+    --text-muted: #7d705c;
+    
+    --font-fancy: 'Playfair Display', serif;
+    --font-serif: 'Noto Serif JP', serif;
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-sans: 'Noto Sans JP', sans-serif;
+    
+    --shadow-gold: 0 4px 15px var(--royal-gold-glow);
+    --shadow-green: 0 4px 15px var(--botanical-green-glow);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-parchment);
+    color: var(--text-dark);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/* --------------------------------------------------------------------------
+   Background Decorations (Aesthetic Elements)
+   -------------------------------------------------------------------------- */
+/* 延命草ボタニカル柄のやわらかなオーバーレイ */
+.herbal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(42, 111, 71, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(194, 153, 83, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 羊皮紙テクスチャ */
+.parchment-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(rgba(240, 230, 210, 0.15) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 光魔法グリッターダスト用コンテナ */
+.glitter-dust {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* 粒子（JSで動的生成） */
+.glitter-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffffff, 0 0 15px var(--royal-gold);
+    opacity: 0;
+    animation: glitter-float 6s infinite ease-in-out;
+}
+
+@keyframes glitter-float {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Container & Navigation
+   -------------------------------------------------------------------------- */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.back-link-floating {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border: 1px dashed var(--border-color);
+    background: rgba(250, 246, 238, 0.95);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.back-link-floating:hover {
+    color: var(--botanical-green);
+    border-color: var(--botanical-green);
+    box-shadow: var(--shadow-green);
+    transform: scale(1.02);
+}
+
+/* --------------------------------------------------------------------------
+   Header: Official Document Design
+   -------------------------------------------------------------------------- */
+.saint-header {
+    background: var(--bg-panel);
+    border: 2px solid var(--border-color);
+    border-top: 4px solid var(--botanical-green);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(44, 37, 27, 0.08);
+    position: relative;
+}
+
+.seal-of-white {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--royal-gold);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.header-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.header-titles {
+    flex: 2;
+    min-width: 300px;
+}
+
+.meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.novel-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.3;
+    color: var(--text-dark);
+}
+
+.novel-title .subtitle {
+    font-size: 1.5rem;
+    color: var(--botanical-green);
+}
+
+.tagline {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* KPI パネル (ビジネス風味) */
+.business-kpi-panel {
+    flex: 1.1;
+    min-width: 280px;
+    background: var(--bg-parchment);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+}
+
+.kpi-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-dark);
+    font-weight: bold;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+}
+
+.kpi-row {
+    display: flex;
+    align-items: center;
+    font-size: 0.78rem;
+    margin-bottom: 8px;
+    gap: 10px;
+}
+
+.kpi-row:last-child {
+    margin-bottom: 0;
+}
+
+.kpi-row .label {
+    width: 90px;
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+.kpi-row .bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.kpi-row .fill {
+    height: 100%;
+    background: var(--botanical-green);
+    border-radius: 4px;
+}
+
+.kpi-row .val {
+    font-family: var(--font-mono);
+    font-weight: bold;
+    width: 30px;
+    text-align: right;
+    color: var(--botanical-green);
+}
+
+/* --------------------------------------------------------------------------
+   Grid Layout & Cards
+   -------------------------------------------------------------------------- */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 30px;
+}
+
+@media (max-width: 1024px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-column, .side-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(44, 37, 27, 0.04);
+}
+
+.section-card.green-border {
+    border-top: 4px solid var(--botanical-green);
+}
+
+.section-card.gold-border {
+    border-top: 4px solid var(--royal-gold);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title i {
+    color: var(--botanical-green);
+}
+
+/* 羊皮紙調あらすじカード */
+.parchment-paper {
+    background: #fcf9f2;
+    border-left: 5px solid var(--text-dark);
+}
+
+.stamp-authorized {
+    border: 2px solid var(--botanical-green);
+    color: var(--botanical-green);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    transform: rotate(-3deg);
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.report-content {
+    padding: 5px;
+}
+
+.quote-header {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--botanical-green);
+    border-left: 3px solid var(--royal-gold);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.para {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.para strong {
+    color: var(--botanical-green);
+    font-weight: bold;
+    background: rgba(42, 111, 71, 0.05);
+    padding: 0 4px;
+}
+
+/* --------------------------------------------------------------------------
+   World & Eco System
+   -------------------------------------------------------------------------- */
+.world-intro {
+    background: var(--bg-parchment);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.world-intro h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.world-intro p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .design-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.design-card {
+    background: var(--bg-parchment);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+}
+
+.design-card.botanical {
+    border-top: 3px solid var(--botanical-green);
+}
+
+.design-card.business-sheet {
+    border-top: 3px solid var(--royal-gold);
+}
+
+.design-card h4 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.design-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Character Tabs
+   -------------------------------------------------------------------------- */
+.char-tabs-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .char-tabs-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.char-tab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    .char-tab-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.char-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .char-btn {
+        flex: 1;
+        text-align: center;
+        padding: 6px 12px;
+    }
+}
+
+.char-btn:hover {
+    color: var(--text-dark);
+    border-color: var(--botanical-green);
+}
+
+.char-btn.active {
+    background: var(--botanical-green);
+    color: #ffffff;
+    border-color: var(--botanical-green);
+    box-shadow: var(--shadow-green);
+}
+
+/* コンテンツ */
+.char-content-wrapper {
+    background: var(--bg-parchment);
+    border: 1px solid var(--border-color);
+    min-height: 250px;
+    position: relative;
+}
+
+.char-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(5px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.char-pane.active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.char-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.char-header .role {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--royal-gold);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+.char-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--text-dark);
+}
+
+.char-desc {
+    font-size: 0.82rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.char-stats {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 12px;
+}
+
+.s-row {
+    display: flex;
+    font-size: 0.78rem;
+    margin-bottom: 5px;
+}
+
+.s-row:last-child {
+    margin-bottom: 0;
+}
+
+.s-row .lbl {
+    width: 90px;
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+.s-row .val {
+    color: var(--text-dark);
+}
+
+.s-row .val.rating {
+    color: var(--royal-gold);
+    letter-spacing: 1.5px;
+}
+
+/* サブ関係者スクロール */
+.scroll-box {
+    max-height: 240px;
+}
+
+.sub-entry {
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.sub-entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.sub-entry strong {
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 3px;
+}
+
+.sub-entry .label {
+    font-size: 0.65rem;
+    padding: 1px 4px;
+    border-radius: 2px;
+    border: 1px solid currentColor;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.text-red {
+    color: #c0392b;
+}
+
+.sub-entry p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Presentation Card (ビジネスプレゼン)
+   -------------------------------------------------------------------------- */
+.presentation-card {
+    border-left: 4px solid var(--royal-gold);
+}
+
+.presentation-card .slide-no {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--royal-gold);
+    font-weight: bold;
+}
+
+.presentation-board {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* スライド表示画面 */
+.slide-screen {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 25px;
+    min-height: 200px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.01);
+}
+
+.slide-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--botanical-green);
+    border-bottom: 2px solid var(--royal-gold);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.slide-body {
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.slide-body h4 {
+    font-family: var(--font-sans);
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.slide-body p {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.slide-body ul {
+    padding-left: 15px;
+    margin-bottom: 12px;
+}
+
+.slide-body li {
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+/* 対比プレゼンカード用 */
+.business-contrast {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contrast-box {
+    flex: 1;
+    background: var(--bg-parchment);
+    padding: 10px;
+    border-radius: 2px;
+    border-top: 3px solid var(--royal-gold);
+}
+
+.contrast-box.success {
+    border-top-color: var(--botanical-green);
+}
+
+.contrast-box h5 {
+    font-family: var(--font-sans);
+    font-weight: bold;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+}
+
+.contrast-box p {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* スライド制御ボタン */
+.presentation-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slide-nav-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-nav-btn:hover {
+    color: var(--text-dark);
+    border-color: var(--botanical-green);
+}
+
+.slide-indicators {
+    display: flex;
+    gap: 6px;
+}
+
+.indicator-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+    background: var(--botanical-green);
+    transform: scale(1.25);
+}
+
+/* --------------------------------------------------------------------------
+   Footer & Actions
+   -------------------------------------------------------------------------- */
+.saint-footer {
+    border-top: 1px dashed var(--border-color);
+    margin-top: 50px;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.archived-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.back-link-bottom {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    background: var(--text-dark);
+    border: 1px solid var(--botanical-green);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-green);
+}
+
+.back-link-bottom:hover {
+    background: var(--botanical-green);
+    box-shadow: 0 0 10px rgba(42, 111, 71, 0.4);
+    transform: translateY(-2px);
+}

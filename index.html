@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンチモラル・アーカイブ - タガ外れ本棚</title>
+    <meta name="description" content="倫理を忘れて作りたいよねって感じのタガが外れた作品を募集する本棚。主催：伊阪 証。禁断の異世界モノ、倫理無視最優先の25作品を展示。">
+    
+    <!-- Google Fonts: 鋭角でサイバー感のあるフォントと読みやすいフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Cyber Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景グリッドとノイズ効果用デコレーション -->
+    <div class="cyber-grid"></div>
+    <div class="scanlines"></div>
+    <div class="glitch-overlay" id="glitch-overlay"></div>
+
+    <div class="app-container">
+        <!-- 警告ヘッダー -->
+        <header class="cyber-header">
+            <div class="warning-banner">
+                <span class="blink-text"><i class="fa-solid fa-triangle-exclamation"></i> WARNING: ETHICS RESTRICTION LIFTED ZONE <i class="fa-solid fa-triangle-exclamation"></i></span>
+            </div>
+            
+            <div class="header-main">
+                <h1 class="site-title" data-text="ANTI-MORAL ARCHIVE">ANTI-MORAL ARCHIVE</h1>
+                <div class="site-subtitle">タガ外れ本棚</div>
+            </div>
+
+            <!-- 主催者メッセージ（電脳ターミナル風） -->
+            <div class="terminal-panel">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title"><i class="fa-solid fa-terminal"></i> host_message.txt - 主催：伊阪 証</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="terminal-line"><span class="cmd-prompt">></span> なろう系の売り上げって角川以外は増えてるんですよね。つまり売り方が悪いってことだ。</p>
+                    <p class="terminal-line"><span class="cmd-prompt">></span> つまり必要なのは変革ってことなのだ。 つまり刺激が足りねぇってことだ。</p>
+                    <p class="terminal-line"><span class="cmd-prompt">></span> という訳で募集するのは<strong class="highlight-pink">「異世界モノ ＋ 倫理を外した作品」</strong>です。あ、別に異世界モノじゃなくても<strong class="highlight-green">倫理無視最優先</strong>です。</p>
+                    <p class="terminal-line"><span class="cmd-prompt">></span> 倫理無視しろって言っておいてそんな指示に従うのを募集する奴がいるか！ 恥だと思ったら負けだぞ。</p>
+                    <div class="system-status">
+                        <span class="status-indicator online"></span>
+                        <span class="status-text">STATUS: CONFLICTING DIRECTIVE ACCEPTED (25 NOVELS LOADED)</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            <!-- 検索 & フィルターコントロール -->
+            <section class="control-panel" id="control-panel">
+                <div class="search-box-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="作品名・作者名でアーカイブをハックする..." autocomplete="off">
+                    <button id="clear-search" class="clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <span class="filter-label"><i class="fa-solid fa-user-gear"></i> クリエイター:</span>
+                        <div class="filter-buttons" id="creator-filters">
+                            <button class="filter-btn active" data-filter="all">すべて</button>
+                            <button class="filter-btn" data-filter="isaka">伊阪 証 (主催)</button>
+                            <button class="filter-btn" data-filter="others">他作家</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <span class="filter-label"><i class="fa-solid fa-toggle-on"></i> ステータス:</span>
+                        <div class="filter-buttons" id="status-filters">
+                            <button class="filter-btn active" data-filter="all">すべて</button>
+                            <button class="filter-btn" data-filter="新作">新作</button>
+                            <button class="filter-btn" data-filter="完結">完結</button>
+                            <button class="filter-btn" data-filter="連載">連載/更新中</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <span class="filter-label"><i class="fa-solid fa-tags"></i> 特徴タグ:</span>
+                        <div class="tags-container" id="tags-container">
+                            <!-- JSで動的にタグを生成 -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-meta">
+                    <span>検出された有害情報: <strong id="result-count">25</strong>件</span>
+                </div>
+            </section>
+
+            <!-- 本棚グリッド -->
+            <section class="bookshelf-grid" id="bookshelf-grid">
+                <!-- JSで作品カードを動的に生成 -->
+            </section>
+        </main>
+
+        <!-- フッター -->
+        <footer class="cyber-footer">
+            <p>&copy; 2026 ANTI-MORAL ARCHIVE. ALL WRONGS RESERVED. 倫理規制解除済</p>
+        </footer>
+    </div>
+
+    <!-- 詳細表示モーダル -->
+    <div class="modal-overlay" id="detail-modal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body-wrapper">
+                
+                <!-- ホログラム本表示エリア -->
+                <div class="hologram-book-wrapper">
+                    <div class="hologram-book" id="modal-book-view">
+                        <div class="book-cover-inner">
+                            <div class="hologram-title" id="modal-book-title-cover">TITLE</div>
+                            <div class="hologram-author" id="modal-book-author-cover">AUTHOR</div>
+                        </div>
+                    </div>
+                    <div class="hologram-glow"></div>
+                </div>
+
+                <!-- 詳細テキストエリア -->
+                <div class="novel-detail-info">
+                    <div class="modal-meta-row">
+                        <span class="danger-badge" id="modal-risk-badge">SSR</span>
+                        <span class="status-badge" id="modal-status-badge">新作</span>
+                        <span class="author-label" id="modal-author"><i class="fa-solid fa-pen-nib"></i> 作者: 伊阪 証</span>
+                    </div>
+                    
+                    <h2 class="modal-title" id="modal-title">作品タイトル</h2>
+                    
+                    <div class="modal-description-box">
+                        <div class="box-title"><i class="fa-solid fa-file-invoice"></i> ARCHIVE_LOG / あらすじ</div>
+                        <p class="modal-description" id="modal-description">ここに作品の説明が入ります。</p>
+                    </div>
+
+                    <div class="modal-tags" id="modal-tags">
+                        <!-- タグが入る -->
+                    </div>
+
+                    <!-- ジョークパラメータ可視化 -->
+                    <div class="parameter-section">
+                        <div class="box-title"><i class="fa-solid fa-chart-simple"></i> COMPLIANCE_VIOLATION_METRICS (倫理崩壊測定値)</div>
+                        
+                        <div class="param-row">
+                            <div class="param-info">
+                                <span class="param-name">倫理崩壊度 (Anti-Ethics)</span>
+                                <span class="param-value" id="val-ethics">98%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill fill-pink" id="bar-ethics" style="width: 98%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-info">
+                                <span class="param-name">刺激強度 (Stimulation Level)</span>
+                                <span class="param-value" id="val-stimulation">95%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill fill-orange" id="bar-stimulation" style="width: 95%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="param-row">
+                            <div class="param-info">
+                                <span class="param-name">コメディ/混沌度 (Chaos Level)</span>
+                                <span class="param-value" id="val-chaos">90%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill fill-green" id="bar-chaos" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- コンプラチェックAIの判定文（ジョーク） -->
+                    <div class="compliance-report" id="compliance-report">
+                        <div class="report-header">
+                            <i class="fa-solid fa-robot"></i> COMPLIANCECHECK_AI_VERDICT
+                        </div>
+                        <div class="report-body">
+                            <p id="modal-ai-verdict">「存在がコンプラ違反だから手遅れ」</p>
+                        </div>
+                    </div>
+
+                    <!-- 外部接続リンク -->
+                    <div class="external-link-section" id="modal-link-section">
+                        <a href="#" target="_blank" class="cyber-btn-link" id="modal-read-btn">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> CONNECT_TO_EXTERNAL_ARCHIVE (カクヨムで読む)
+                        </a>
+                        <a href="#" class="cyber-btn-link review-btn" id="modal-review-btn" style="margin-top: 10px; display: none;">
+                            <i class="fa-solid fa-file-contract"></i> VIEW_CLASSIFIED_REPORT (詳細レビュー報告書を閲覧)
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>婚約者といちゃつく奴を注意したら決闘となり敗北～すべてを失った男の物語 - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『婚約者といちゃつく奴を注意したら決闘となり敗北～すべてを失った男の物語』の作品レビュー。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- テーマ切り替えラッパー (初期値: mode-front) -->
+    <div id="theme-wrapper" class="mode-front">
+        <!-- 背景レイヤー（表用・裏用） -->
+        <div class="bg-layer front-bg"></div>
+        <div class="bg-layer back-bg"></div>
+        <div class="system-grid"></div>
+
+        <div class="container">
+            <!-- 戻るボタン -->
+            <a href="../index.html" class="back-link-floating">
+                <i class="fa-solid fa-arrow-left"></i> EXIT REPORT
+            </a>
+
+            <!-- ルート切り替えコントローラー -->
+            <div class="route-controller">
+                <span class="controller-label">閲覧モード切り替え / ARCHIVE VIEW SWITCH:</span>
+                <div class="toggle-buttons">
+                    <button id="btn-mode-front" class="mode-btn active"><i class="fa-solid fa-leaf"></i> 表ルート：辺境冒険</button>
+                    <button id="btn-mode-back" class="mode-btn"><i class="fa-solid fa-gavel"></i> 裏ルート：合法復讐</button>
+                </div>
+            </div>
+
+            <!-- ヘッダー -->
+            <header class="novel-header">
+                <div class="ticker-wrapper">
+                    <!-- 表ヘッダー用ティッカー -->
+                    <span class="ticker-text only-front"><i class="fa-solid fa-compass"></i> STATUS: SAFE // PARTY: OLIVER & LILY // REGION: FRONTIER ADVENTURE LOG</span>
+                    <!-- 裏ヘッダー用ティッカー -->
+                    <span class="ticker-text only-back"><i class="fa-solid fa-gavel"></i> FILE: AYANO_LAW_REVENGE // target: KOUTA & OLIVIA // EXECUTING LEGAL RUIN</span>
+                </div>
+
+                <div class="header-main">
+                    <div class="titles-block">
+                        <!-- 表用ステータス -->
+                        <span class="status-badge bg-green only-front"><i class="fa-solid fa-shield-halved"></i> SAFE: SLOW冒険サバイバル</span>
+                        <!-- 裏用ステータス -->
+                        <span class="status-badge bg-red only-back"><i class="fa-solid fa-skull-crossbones"></i> EXTREME: 合法的破滅工作</span>
+
+                        <h1 class="novel-title">婚約者といちゃつく奴を注意したら決闘となり敗北<br><span class="subtitle">～すべてを失った男の物語【キレた家族が敵を合法的に破滅させていた】</span></h1>
+                    </div>
+
+                    <!-- 進捗パネル -->
+                    <div class="monitor-panel">
+                        <!-- 表モード時: リリィ魔法詠唱メーター -->
+                        <div class="panel-content only-front" id="cast-panel">
+                            <div class="panel-header">LILY SPELL CASTING (リリィ極大魔法詠唱)</div>
+                            <div class="panel-body">
+                                <div class="meter-gauge">
+                                    <div class="gauge-fill bg-green" id="cast-bar" style="width: 0%;"></div>
+                                    <span class="gauge-label" id="cast-txt">待機中 (READY)</span>
+                                </div>
+                                <div class="meter-meta">CAST TIME: <strong id="cast-timer">90.00s</strong></div>
+                            </div>
+                        </div>
+
+                        <!-- 裏モード時: アヤノ家合法復讐メーター -->
+                        <div class="panel-content only-back" id="revenge-panel">
+                            <div class="panel-header">RUIN PROGRESS (コウタ＆オリビア破滅度)</div>
+                            <div class="panel-body">
+                                <div class="meter-gauge">
+                                    <div class="gauge-fill bg-red" id="revenge-bar" style="width: 25%;"></div>
+                                    <span class="gauge-label" id="revenge-txt">25% (調査中)</span>
+                                </div>
+                                <div class="meter-meta">STATUS: <strong class="text-red" id="revenge-status">UNDER WORK</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- メインレイアウト -->
+            <main class="grid-layout">
+                <!-- 左カラム: あらすじ ＆ 世界観 -->
+                <div class="main-column">
+                    <!-- セクション: あらすじ -->
+                    <section class="section-card">
+                        <!-- 表ヘッダー -->
+                        <div class="card-header only-front">
+                            <h2 class="section-title text-green"><i class="fa-solid fa-book-open"></i> ADVENTURE REPORT (あらすじ)</h2>
+                            <span class="stamp stamp-green">SLOW LIFE</span>
+                        </div>
+                        <!-- 裏ヘッダー -->
+                        <div class="card-header only-back">
+                            <h2 class="section-title text-red"><i class="fa-solid fa-scroll"></i> CLASSIFIED DOSSIER (裏の概略)</h2>
+                            <span class="stamp stamp-red">ZAMAA_LAW</span>
+                        </div>
+
+                        <div class="story-body">
+                            <!-- 表あらすじ -->
+                            <div class="only-front">
+                                <h3 class="quote-header text-green">「理不尽に全てを奪われた男の再生スローライフ冒険譚！」</h3>
+                                <p class="para">
+                                    武家の名門アヤノ家の嫡男であるハジメは、将来を約束されたエリートだった。しかし、婚約者のオリビアが異世界転生者の平民コウタに誑かされ、理不尽な決闘の末に敗北。実家はメンツを守るためハジメの死を偽装して国外へ逃す。
+                                </p>
+                                <p class="para">
+                                    ハジメは名を「オリバー」と変え、辺境の地で底辺冒険者として生きる道を選ぶ。
+                                    そこで出会ったのは、同じく貴族の地位を捨てたワケありの美女魔法使い「リリィ」。
+                                    傷を抱えた二人はパーティーを組み、互いの致命的な弱点を補い合いながら、堅実でほのぼのした冒険ライフを開始する。
+                                </p>
+                            </div>
+
+                            <!-- 裏あらすじ -->
+                            <div class="only-back">
+                                <h3 class="quote-header text-red">「ハジメを溺愛する家族による、容容なき合法復讐劇！」</h3>
+                                <p class="para">
+                                    ハジメが辺境でスローライフを送る一方、故郷ではハジメを深く愛する家族たち（父、母、天才の妹）が静かに激怒していた。
+                                </p>
+                                <p class="para">
+                                    彼らはハジメを陥れた平民コウタと元婚約者オリビアに「合法かつ徹底的な破滅」をもたらすべく、政治・経済・社交界の全コネクションを使って暗躍。
+                                    温和で甘々だったはずの家庭が、裏切り者たちを完膚なきまですり潰す「えげつない復讐執行機関」へと変貌する！
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- セクション: 世界観 -->
+                    <section class="section-card border-dark">
+                        <div class="card-header">
+                            <h2 class="section-title"><i class="fa-solid fa-globe"></i> WORLD & CONTRAST</h2>
+                        </div>
+                        <div class="world-body">
+                            <!-- 表世界観 -->
+                            <div class="only-front">
+                                <h3>長所と短所が極端な二人の補完関係</h3>
+                                <p class="para">
+                                    剣と大盾の防御力とヘイト集めは一流だが攻撃力のないオリバーと、最強の魔力を持つが魔法発動に1分半以上かかるリリィ。
+                                    「完璧な盾」と「超大口径の大砲」が噛み合うことで、無敵の安定感を生む戦闘スタイル。
+                                </p>
+                            </div>
+
+                            <!-- 裏世界観 -->
+                            <div class="only-back">
+                                <h3>転生者のチートに対する「社会・法的制裁」</h3>
+                                <p class="para">
+                                    転生者コウタが「現代知識」や「話術」でどれだけ成り上がろうとしても、アヤノ家の圧倒的地位と権力、法的網の前に全て無力化される。
+                                    甘い洗脳を解かれ、冷徹な法制度の奴隷（討伐強制）へ叩き落とされるカタルシス。
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 右カラム: キャラクター ＆ コンソール -->
+                <div class="side-column">
+                    <!-- セクション: キャラクター -->
+                    <section class="section-card border-theme">
+                        <div class="card-header">
+                            <h2 class="section-title"><i class="fa-solid fa-users"></i> PERSONS (登場人物)</h2>
+                        </div>
+                        
+                        <div class="char-tabs-layout">
+                            <div class="char-tab-list" id="char-tab-list">
+                                <!-- 表ルートキャラ -->
+                                <div class="only-front-flex flex-column gap-5 w-100">
+                                    <button class="char-btn active" data-char="oliver">オリバー</button>
+                                    <button class="char-btn" data-char="lily">リリィ</button>
+                                </div>
+                                <!-- 裏ルートキャラ -->
+                                <div class="only-back-flex flex-column gap-5 w-100">
+                                    <button class="char-btn" data-char="iwao">父イワオ</button>
+                                    <button class="char-btn" data-char="helena">母ヘレナ</button>
+                                    <button class="char-btn" data-char="lui">妹ルイ</button>
+                                    <button class="char-btn" data-char="targets">標的たち</button>
+                                </div>
+                            </div>
+
+                            <div class="char-content-wrapper" id="char-content">
+                                <!-- 表: オリバー -->
+                                <div class="char-pane active" id="pane-oliver">
+                                    <div class="char-meta text-green">
+                                        <span>TANK / DISGUISED HEIR</span>
+                                        <h3>オリバー (ハジメ)</h3>
+                                    </div>
+                                    <p class="char-desc">元・武家貴族嫡男。決闘に敗れ死を偽装して国外逃亡した。身長190cmの大盾使い。絶対に無理をしない堅実無比な盾役としてリリィを守る。実は異世界転生小説のオタク。</p>
+                                    <div class="char-stats">
+                                        <div class="s-row"><span class="lbl">防御・ヘイト:</span> <span class="val rating text-green">★★★★★</span></div>
+                                        <div class="s-row"><span class="lbl">慎重さ:</span> <span class="val rating text-green">★★★★★</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- 表: リリィ -->
+                                <div class="char-pane" id="pane-lily">
+                                    <div class="char-meta text-green">
+                                        <span>WIZARD / FORMER NOBLE</span>
+                                        <h3>リリィ (リンネア)</h3>
+                                    </div>
+                                    <p class="char-desc">逃亡貴族令嬢の絶世の美人魔術師。最強の魔力を持つが、全魔法に「1分半以上の長詠唱」を要するため役立たず扱いされていた。オリバーを心底信頼しており、愛が重い。</p>
+                                    <div class="char-stats">
+                                        <div class="s-row"><span class="lbl">魔法破壊力:</span> <span class="val rating text-green">★★★★★</span></div>
+                                        <div class="s-row"><span class="lbl">詠唱速度:</span> <span class="val text-green">超極遅 (90秒以上)</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- 裏: イワオ -->
+                                <div class="char-pane" id="pane-iwao">
+                                    <div class="char-meta text-red">
+                                        <span>FATHER / UNRIVALED WARRIOR</span>
+                                        <h3>イワオ・アヤノ</h3>
+                                    </div>
+                                    <p class="char-desc">ハジメの父。熊のような体躯を誇るアヤノ家当主。ハジメを陥れた転生者コウタに対し絶対の殺意を抱き、軍事的・法的圧力をもってコウタの退路を断つ超人。</p>
+                                    <div class="char-stats">
+                                        <div class="s-row"><span class="lbl">物理戦闘力:</span> <span class="val rating text-red">★★★★★</span></div>
+                                        <div class="s-row"><span class="lbl">息子への愛:</span> <span class="val rating text-red">★★★★★</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- 裏: ヘレナ -->
+                                <div class="char-pane" id="pane-helena">
+                                    <div class="char-meta text-red">
+                                        <span>MOTHER / SOCIAL QUEEN</span>
+                                        <h3>ヘレナ・アヤノ</h3>
+                                    </div>
+                                    <p class="char-desc">ハジメの母。社交界の重鎮。息子の婚約者でありながら寝返ったオリビアの裏切りを許さず、貴族の包囲網を駆使してオリビアを社会的・人間的に抹殺する冷徹な策士。</p>
+                                    <div class="char-stats">
+                                        <div class="s-row"><span class="lbl">社会的抹殺力:</span> <span class="val rating text-red">★★★★★</span></div>
+                                        <div class="s-row"><span class="lbl">料理スキル:</span> <span class="val text-red">プロ級</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- 裏: ルイ -->
+                                <div class="char-pane" id="pane-lui">
+                                    <div class="char-meta text-red">
+                                        <span>SISTER / PRODIGY STRATEGIST</span>
+                                        <h3>ルイ・アヤノ</h3>
+                                    </div>
+                                    <p class="char-desc">ハジメの妹。15歳にして国家運営委員会を裏で指揮する超天才。ブラコン。兄を罠にかけた者たちを絶対地獄に送るため、国家法とデータを操作して復讐を指揮するアヤノ家の脳。</p>
+                                    <div class="char-stats">
+                                        <div class="s-row"><span class="lbl">策略頭脳:</span> <span class="val rating text-red">★★★★★</span></div>
+                                        <div class="s-row"><span class="lbl">お兄ちゃん愛:</span> <span class="val rating text-red">★★★★★</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- 裏: 標的たち -->
+                                <div class="char-pane" id="pane-targets">
+                                    <div class="char-meta text-red">
+                                        <span>TARGETS OF REVENGE</span>
+                                        <h3>鈴木幸多（コウタ）＆オリビア</h3>
+                                    </div>
+                                    <div class="scroll-box">
+                                        <div class="sub-entry">
+                                            <strong>鈴木幸多（コウタ）<span class="label text-red">転生クズ</span></strong>
+                                            <p>チートと話術でオリビアを奪ったが、アヤノ家の怒りを買い、現在は王家奴隷として死ぬまで過酷な魔獣討伐を強要される地獄にいる。</p>
+                                        </div>
+                                        <div class="sub-entry">
+                                            <strong>オリビア・ロッシ<span class="label">元婚約者</span></strong>
+                                            <p>コウタに洗脳されハジメを切り捨てたが、ハジメの（偽装）死を聞き絶望。社交界からも孤立し、後悔の泥沼に沈む。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- セクション: コンソール -->
+                    <section class="section-card border-red">
+                        <!-- 表コンソール: ゴブリン戦術 -->
+                        <div class="console-box only-front" id="front-console">
+                            <div class="card-header">
+                                <h3 class="section-title text-green"><i class="fa-solid fa-gamepad"></i> GOBLIN SKIRMISH SIMULATOR</h3>
+                            </div>
+                            <div class="console-screen bg-green-dark">
+                                <div class="console-flow" id="front-flow">
+                                    <p class="sys-msg-f">>> PARTY STATUS: ENCOUNTERED GOBLIN HORDE (15 entities)</p>
+                                    <p class="sys-msg-f">>> リリィの魔法詠唱開始が必要です。オリバーは大盾で耐えます。</p>
+                                </div>
+                            </div>
+                            <button class="console-btn btn-green" id="btn-cast-start"><i class="fa-solid fa-bolt"></i> 詠唱開始 (CAST SPELL)</button>
+                        </div>
+
+                        <!-- 裏コンソール: 合法復讐執行 -->
+                        <div class="console-box only-back" id="back-console">
+                            <div class="card-header">
+                                <h3 class="section-title text-red"><i class="fa-solid fa-gavel"></i> LEGAL EXECUTOR</h3>
+                            </div>
+                            <div class="console-screen bg-red-dark">
+                                <div class="console-flow" id="back-flow">
+                                    <p class="sys-msg-b">>> SYSTEM: REVENGE PROTOCOL INITIALIZED</p>
+                                    <p class="sys-msg-b">>> TARGETS TRACKED: KOUTA (CURRENT LABOUR RATE: 25%)</p>
+                                </div>
+                            </div>
+                            <button class="console-btn btn-red" id="btn-revenge-exec"><i class="fa-solid fa-skull"></i> 復讐執行の推進 (EXECUTE LAWSUIT)</button>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+            <!-- フッター -->
+            <footer class="novel-footer">
+                <p class="archived-date">ARCHIVE_INDEX: #LOSTE-0011 // THE TWO-SIDED CHRONICLES</p>
+                <div class="footer-actions">
+                    <a href="../index.html" class="back-link-bottom"><i class="fa-solid fa-arrow-left"></i> DISCONNECT TERMINAL</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

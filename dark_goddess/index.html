@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常闇の女神　ー目指せ、俺の大神殿！ー - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『常闇の女神　ー目指せ、俺の大神殿！ー』の作品レビュー。">
+    
+    <!-- Google Fonts: ファンタジー神話明朝とサイバー等幅フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景演出: 大神殿の黒大理石テクスチャ、蠢く常闇のオーラ、電気的なシアンの雷火 -->
+    <div class="darkness-aura"></div>
+    <div class="lightning-canvas" id="lightning-container"></div>
+    <div class="marble-grid"></div>
+
+    <div class="container">
+        <!-- 浮遊式戻るボタン (RETURN TO REALITY) -->
+        <a href="../index.html" class="back-link-floating">
+            <i class="fa-solid fa-person-through-window"></i> LEAVE DEITY CHAMBER
+        </a>
+
+        <!-- 神殿建築ヘッダー -->
+        <header class="goddess-header">
+            <div class="system-status-ticker">
+                <span class="ticker-text"><i class="fa-solid fa-circle-nodes"></i> DIVINE REALM STATUS: SYNCHRONIZED // TOKAYAMI GODDESS RELIGION: EXPANDING // FAITH RATIO: CLIMBING</span>
+            </div>
+            
+            <div class="header-main-layout">
+                <div class="titles-block">
+                    <span class="threat-badge text-cyan"><i class="fa-solid fa-yin-yang"></i> DIVINITY STATUS: APOTHEOSIS (神化完了)</span>
+                    <h1 class="novel-title">常闇の女神<br><span class="subtitle">ー目指せ、俺の大神殿！ー</span></h1>
+                </div>
+                
+                <!-- 大神殿建設度ゲージ -->
+                <div class="monitor-panel" id="temple-panel">
+                    <div class="panel-header">GREAT TEMPLE PROGRESS (大神殿建立進捗)</div>
+                    <div class="panel-body">
+                        <div class="meter-gauge">
+                            <div class="gauge-fill" id="temple-bar"></div>
+                            <span class="progress-pct" id="temple-pct">0%</span>
+                        </div>
+                        <div class="meter-meta">STATUS: <strong class="text-cyan" id="temple-status">UNDER CONSTRUCTION</strong></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メイングリッド -->
+        <main class="grid-layout">
+            <!-- 左カラム: あらすじ & 世界観 -->
+            <div class="main-column">
+                
+                <!-- セクション: あらすじ -->
+                <section class="section-card border-cyan">
+                    <div class="card-header">
+                        <h2 class="section-title text-cyan"><i class="fa-solid fa-scroll"></i> APOCRYPHA: SUMMARY</h2>
+                        <span class="stamp-deity">GODDESS</span>
+                    </div>
+                    
+                    <div class="story-body">
+                        <h3 class="quote-header">「圧倒的パワーで蹂躙する、最悪で爽快なダーク・コメディ！」</h3>
+                        <p class="para">
+                            かつてゾンビとして転生し、スケルトンの最上位種を経てついに『常闇の女神』へと神化した元日本人の主人公・ダークン。
+                        </p>
+                        <p class="para">
+                            彼女は、半神へと進化した強力すぎる眷属のトルシェ（闇 of 右手）、アズラン（闇 of 左手）と共に、自らを祀る『大神殿』を建立するため王都へと向かう。
+                        </p>
+                        <p class="para">
+                            その道中で、自らを詐称する邪教集団『闇の使徒』や悪徳商会、魔術師ギルドなどを、物理・魔術の圧倒的な規格外パワーで蹂躙！
+                            次々と乗っ取っては資金と信者を力づくで獲得し、時には敵国ハイデンの数万の軍勢を一撃の魔法で一掃しながら、着実に大神殿の建立計画を進めていく。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- セクション: 世界観とビジュアルコンセプト -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-dungeon"></i> WORLD SETTING & DESIGN</h2>
+                    </div>
+                    
+                    <div class="world-intro">
+                        <h3>物理破壊とコメディの融合</h3>
+                        <p>中世王道ファンタジーでありながら、神の力を手に入れた主人公一行にとってはただの「イージーモードの砂場遊び」。周囲の王族や大教主が必死に策謀を巡らせる中、ダークンたちがそれを理不尽な超魔術で吹き飛ばす圧倒的カタルシスが魅力です。</p>
+                    </div>
+
+                    <div class="contrast-layout">
+                        <div class="side-card border-cyan-sub">
+                            <h4>黒大理石とシアンの神聖なる光</h4>
+                            <p>『常闇の大神殿』の漆黒の石壁をイメージした黒大理石の質感と、冷たく輝くシアン（水色）の雷火による神秘的なコントラスト。</p>
+                        </div>
+                        
+                        <div class="side-card border-silver-sub">
+                            <h4>骸骨と眷属の鉄血の忠誠</h4>
+                            <p>元スケルトンのダークンと、絶対の忠実を誓う眷属たちのゴシックで重厚なシルバー・メタリックの質感。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右カラム: キャラクター & 大神殿シミュレーター -->
+            <div class="side-column">
+                
+                <!-- セクション: 眷属名簿 -->
+                <section class="section-card border-cyan char-panel">
+                    <div class="card-header">
+                        <h2 class="section-title text-cyan"><i class="fa-solid fa-users-viewfinder"></i> DIVINE SERVANTS (眷属名簿)</h2>
+                    </div>
+                    
+                    <div class="char-tabs-layout">
+                        <div class="char-tab-list" id="char-tab-list">
+                            <button class="char-btn active" data-char="darkn">ダークン</button>
+                            <button class="char-btn" data-char="torsche">トルシェ</button>
+                            <button class="char-btn" data-char="azlan">アズラン</button>
+                        </div>
+                        
+                        <div class="char-content-wrapper" id="char-content">
+                            <!-- ダークン -->
+                            <div class="char-pane active" id="pane-darkn">
+                                <div class="char-meta">
+                                    <span class="role text-cyan">GODDESS OF TOKAYAMI / REINCARNATOR</span>
+                                    <h3>ダークン</h3>
+                                </div>
+                                <p class="char-desc">元日本人。ゾンビ・スケルトンを経てついに神格に達した『常闇の女神』。おっとりとしたマイペースな性格だが、神殿建築の資金繰りや布教のためには邪教や悪徳組織を微塵も躊躇せず平らげる無自覚な蹂躙者。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">神聖魔力:</span> <span class="val text-cyan">UNMEASURABLE</span></div>
+                                    <div class="s-row"><span class="lbl">一般常識:</span> <span class="val rating">★☆☆☆☆ (崩壊)</span></div>
+                                    <div class="s-row"><span class="lbl">好物:</span> <span class="val">美味しいご飯、酒</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- トルシェ -->
+                            <div class="char-pane" id="pane-torsche">
+                                <div class="char-meta">
+                                    <span class="role text-cyan">THE RIGHT HAND OF DARKNESS / DEITY</span>
+                                    <h3>トルシェ</h3>
+                                </div>
+                                <p class="char-desc">ダークンの半神の眷属。「闇の右手」を司る。有能すぎる極上の執事にして頭脳派。ダークンのことを神として盲信・狂愛しており、彼女の神殿建立のためならあらゆる買収、略奪、乗っ取りの計略を実行する共犯者。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">信徒忠誠心:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">内政・知略:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">備考:</span> <span class="val">ダークンの無茶振りを完璧にこなす過労執事。</span></div>
+                                </div>
+                            </div>
+
+                            <!-- アズラン -->
+                            <div class="char-pane" id="pane-azlan">
+                                <div class="char-meta">
+                                    <span class="role text-cyan">THE LEFT HAND OF DARKNESS / DEITY</span>
+                                    <h3>アズラン</h3>
+                                </div>
+                                <p class="char-desc">ダークンの半神の眷属。「闇の左手」を司る。最強の武力と圧倒的な体躯を誇る物理のスペシャリスト。主の障壁となる者には冷酷無比であり、一振りで敵国の最精鋭騎士団や巨獣を肉片に変える無慈悲なる前衛。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">物理戦闘力:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">慈悲心:</span> <span class="val">0 (NONE)</span></div>
+                                    <div class="s-row"><span class="lbl">役割:</span> <span class="val">障害の粉砕・殲滅担当</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- セクション: 大神殿建築シミュレーター -->
+                <section class="section-card border-cyan simulation-section">
+                    <div class="card-header">
+                        <h2 class="section-title text-cyan"><i class="fa-solid fa-gopuran"></i> TEMPLE EXPANSION CONSOLE</h2>
+                    </div>
+                    
+                    <div class="sim-board">
+                        <div class="sim-display">
+                            <div class="screen-log" id="sim-log">
+                                <p class="sys-msg">>> SYSTEM: 常闇の大神殿 建立プロジェクト始動</p>
+                                <p class="sys-msg">>> CURRENT FUNDS: 120,000 GOLD // BELIEVERS: 240</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sim-actions">
+                            <button class="sim-btn" id="btn-conquer-cult"><i class="fa-solid fa-hand-holding-dollar"></i> 邪教『闇の使徒』の買収・乗っ取り</button>
+                            <button class="sim-btn" id="btn-conquer-guild"><i class="fa-solid fa-city"></i> 魔術師ギルドの蹂躙</button>
+                            <button class="sim-btn" id="btn-conquer-kingdom"><i class="fa-solid fa-shield-halved"></i> 敵国ハイデン軍の殲滅</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="goddess-footer">
+            <p class="archived-date">DIVINE_INDEX: #DARKG-0018 // THE GREAT TEMPLE CHRONICLES</p>
+            <div class="footer-actions">
+                <a href="../index.html" class="back-link-bottom"><i class="fa-solid fa-person-through-window"></i> DISCONNECT FROM TEMPLE</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

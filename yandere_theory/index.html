@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>死にモブが生き残るためのヤンデレ理論 - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『死にモブが生き残るためのヤンデレ理論 〜好意を搾取して最強になったはいいが、ヤンデレたちの狂気が常に俺の背後で火花を散らしている〜』の作品レビュー。">
+    
+    <!-- Google Fonts: ダークゴシックフォントとシステム用等幅フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Share+Tech+Mono&family=Noto+Sans+JP:wght@400;700;900&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景演出: 降る灰のアニメーション、ブラッドレッドの脈動、恩寵のグリッドウィンドウ -->
+    <div class="falling-ash"></div>
+    <div class="blood-pulse"></div>
+    <div class="encho-grid"></div>
+
+    <!-- 胃痛警告アラート（ランダムでポップアップするコンテナ） -->
+    <div class="stomach-alert-container" id="alert-popup-area"></div>
+
+    <div class="container">
+        <!-- 浮遊式戻るボタン (ESCAPE) -->
+        <a href="../index.html" class="back-link-floating">
+            <i class="fa-solid fa-heart-crack"></i> ESCAPE FROM YANDERES
+        </a>
+
+        <!-- ヤンデレ危険ヘッダー -->
+        <header class="yandere-header">
+            <div class="ulcer-monitor-bar">
+                <div class="monitor-item"><span class="lbl"><i class="fa-solid fa-heart-pulse"></i> TARGET SYSTEM:</span> <span class="val text-cyan">【恩寵の簒奪】ACTIVE</span></div>
+                <div class="monitor-item"><span class="lbl"><i class="fa-solid fa-skull-crossbones"></i> ULCER LEVEL:</span> <span class="val text-red blinking" id="ulcer-value">98% (EXTREME)</span></div>
+                <div class="monitor-item"><span class="lbl"><i class="fa-solid fa-pills"></i> STOMACH MEDICINE:</span> <span class="val text-gold" id="medicine-value">残り 2錠</span></div>
+            </div>
+            
+            <div class="header-main">
+                <div class="title-block">
+                    <span class="sub-alert text-red"><i class="fa-solid fa-triangle-exclamation"></i> WARNING: CO-DEPENDENT ECOSYSTEM <i class="fa-solid fa-triangle-exclamation"></i></span>
+                    <h1 class="novel-title">死にモブが生き残るための<br><span class="subtitle">ヤンデレ理論</span></h1>
+                    <p class="tagline">確定死モブが最強ヒロインたちの愛（ヤンデレ）を搾取し、胃に穴をあけながら無双する</p>
+                </div>
+                
+                <!-- 簒奪能力同期パネル -->
+                <div class="grace-sync-panel" id="sync-panel">
+                    <div class="panel-header">【恩寵の簒奪】同期率 (SYNC_RATE)</div>
+                    <div class="panel-body">
+                        <div class="sync-row">
+                            <span class="name">セリア (剣聖):</span>
+                            <div class="sync-bar"><div class="fill bg-silver" id="sync-selia" style="width: 100%;"></div></div>
+                            <span class="rate">100%</span>
+                        </div>
+                        <div class="sync-row">
+                            <span class="name">エルリア (聖女):</span>
+                            <div class="sync-bar"><div class="fill bg-gold" id="sync-elria" style="width: 100%;"></div></div>
+                            <span class="rate">100%</span>
+                        </div>
+                        <div class="sync-row">
+                            <span class="name">イヴ (魔導技師):</span>
+                            <div class="sync-bar"><div class="fill bg-blue" id="sync-eve" style="width: 100%;"></div></div>
+                            <span class="rate">100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メイングリッド -->
+        <main class="grid-layout">
+            <!-- 左カラム: あらすじ & 世界観・魔境 -->
+            <div class="main-column">
+                
+                <!-- セクション: あらすじ (カルテ風) -->
+                <section class="section-card border-red dark-panel">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-file-invoice"></i> DATAFILE: OVERVIEW</h2>
+                        <span class="stamp-yandere">YANDERE_ALERT</span>
+                    </div>
+                    
+                    <div class="section-body">
+                        <h3 class="quote-header">「死にモブが挑む、胃痛限界突破の生存戦略！」</h3>
+                        <p class="desc-para">
+                            ダークファンタジーRPG『黒蝕のレガリア』の確定死モブ貴族「ルーク・バルディア」に転生した主人公。
+                            無魔者で1年後のスタンピードで死ぬ運命にあった彼は、他者の「好意や執着」に比例して対象能力を同期するチートスキル<strong>【恩寵の簒奪】</strong>に目覚める。
+                        </p>
+                        <p class="desc-para">
+                            ルークは生き残るため、将来最強となるヒロインたちを悲惨な境遇から救い出し、彼女たちから極大の「好意（ヤンデレ）」を搾取して最強の力を得る計画を開始。
+                        </p>
+                        <p class="desc-para">
+                            最強のヤンデレ3人を配下にしたものの、彼女たちの「排除」「狂信」「監禁」という重すぎる愛の牽制により、領地は要塞カルト化し、毎日のように命懸けの修羅場が勃発！
+                            本来の主人公（勇者）に悪徳領主と勘違いされながら、世界崩壊を防ぐために胃痛に耐える暗黒スローライフ。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- セクション: 世界観とバルディア領 -->
+                <section class="section-card border-gray">
+                    <div class="card-header">
+                        <h2 class="section-title text-gray"><i class="fa-solid fa-shield-halved"></i> WORLD & BALDIA TERRITORY</h2>
+                    </div>
+                    
+                    <div class="world-intro">
+                        <h3>滅びに向かう灰の世界 ＆ 世界最悪のユユトピア</h3>
+                        <p>空から降る黒い灰が生物を異形「黒蝕獣」に変える破滅の世界。
+                        しかし主人公が治める「バルディア男爵領」は、巨大防壁『エデン』で囲まれ、純白の大理石の大聖堂が建ち、自動ゴーレムが動き回るオーバーテクノロジーと狂信が入り混じる魔境と化しています。</p>
+                    </div>
+
+                    <div class="design-contrast">
+                        <div class="side-box border-black">
+                            <h4>全体トーン (灰と漆黒)</h4>
+                            <p>空から降り注ぐ黒い灰と、救いのないディストピア世界観を表現するアッシュグレーと漆黒のソリッドな背景。</p>
+                        </div>
+                        <div class="side-box border-red">
+                            <h4>ヤンデレ（狂気のブラッドレッド）</h4>
+                            <p>ヒロインたちのルークへの狂的な執着、飛び散る返り血を象徴する、生々しく脈動するブラッドレッドのアラート発光。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右カラム: キャラクター & ベストバウト -->
+            <div class="side-column">
+                
+                <!-- セクション: ヤンデレ生態ファイル -->
+                <section class="section-card border-red char-panel">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-heart-pulse"></i> YANDERE THREAT PROFILE</h2>
+                    </div>
+                    
+                    <div class="char-tabs-layout">
+                        <div class="char-tab-list" id="char-tab-list">
+                            <button class="char-btn active" data-char="luke">ルーク</button>
+                            <button class="char-btn" data-char="selia">セリア</button>
+                            <button class="char-btn" data-char="elria">エルリア</button>
+                            <button class="char-btn" data-char="eve">イヴ</button>
+                            <button class="char-btn" data-char="others">他関係者</button>
+                        </div>
+                        
+                        <div class="char-content-wrapper" id="char-content">
+                            <!-- ルーク -->
+                            <div class="char-pane active" id="pane-luke">
+                                <div class="char-meta">
+                                    <span class="role text-red">VICTIM / ULCER OWNER</span>
+                                    <h3>ルーク・バルディア</h3>
+                                </div>
+                                <p class="char-desc">貧乏男爵家の三男。【恩寵の簒奪】で最強ヤンデレたちの力を同期・簒奪し無双するが、ヒロインたちの愛（魔力）を常時受信するため魔力酔いと胃潰瘍に苦しみ、胃薬が手放せない胃痛の主。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">胃腸強度:</span> <span class="val rating">★☆☆☆☆ (瀕死)</span></div>
+                                    <div class="s-row"><span class="lbl">悪役演技:</span> <span class="val rating">★★★★☆ (誤解の元)</span></div>
+                                    <div class="s-row"><span class="lbl">簒奪スキル:</span> <span class="val text-cyan">恩寵の簒奪 (同期率300%)</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- セリア -->
+                            <div class="char-pane" id="pane-selia">
+                                <div class="char-meta">
+                                    <span class="role text-red">EXCLUSION TYPE / SWORD MASTER</span>
+                                    <h3>セリア <span class="badge danger">危険度: S</span></h3>
+                                </div>
+                                <p class="char-desc">銀糸の髪を持つ最強の剣聖。奴隷市場から救ってくれたルークに忠誠を誓う。ルークに近づく害虫（他の女性含む）を全て切り刻んで「排除」しようとする過激派ヤンデレ。親衛隊を恐怖支配する鬼教官。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">ヤンデレ種別:</span> <span class="val text-red">排除型 / 物理排除</span></div>
+                                    <div class="s-row"><span class="lbl">ルークへの執着:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">特記事項:</span> <span class="val">害虫排除のため、抜刀速度は音速を超える。</span></div>
+                                </div>
+                            </div>
+
+                            <!-- エルリア -->
+                            <div class="char-pane" id="pane-elria">
+                                <div class="char-meta">
+                                    <span class="role text-red">CULT TYPE / SAINT</span>
+                                    <h3>エルリア <span class="badge danger">危険度: S</span></h3>
+                                </div>
+                                <p class="char-desc">金糸の髪の聖女。暗殺から救われ、ルークを「真なる神」と崇める。ルークを世界の頂点に立たせるためなら、大陸全土を極大破壊魔法で焼き払うことも辞さない。領地を洗脳してカルト教国化させた狂信者。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">ヤンデレ種別:</span> <span class="val text-red">狂信型 / 世界征服</span></div>
+                                    <div class="s-row"><span class="lbl">信仰パラメータ:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">特記事項:</span> <span class="val">ルーク像がそびえ立つ大聖堂の教祖を自認。</span></div>
+                                </div>
+                            </div>
+
+                            <!-- イヴ -->
+                            <div class="char-pane" id="pane-eve">
+                                <div class="char-meta">
+                                    <span class="role text-red">CONFINEMENT TYPE / CRAFTSMAN</span>
+                                    <h3>イヴ <span class="badge danger">危険度: S</span></h3>
+                                </div>
+                                <p class="char-desc">水色髪の天才魔導技師。自分の才能を全肯定してくれたルークに依存。ルークを外界の危険から守るため、領地を絶対に外に出られない要塞（鳥籠）に改造し、ルークを一生引きこもらせて飼い殺そうと目論む。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">ヤンデレ種別:</span> <span class="val text-red">監禁型 / 要塞化</span></div>
+                                    <div class="s-row"><span class="lbl">過保護パラメータ:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">特記事項:</span> <span class="val">領内の防衛ゴーレム・対消滅レーザーは全て彼女の管轄。</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 他関係者 -->
+                            <div class="char-pane" id="pane-others">
+                                <div class="char-meta">
+                                    <span class="role text-gray">OTHERS IN THE REGALIA</span>
+                                    <h3>アリシア王女 & 勇者アレン</h3>
+                                </div>
+                                <div class="scroll-box">
+                                    <div class="sub-entry">
+                                        <strong>アリシア王女 <span class="label text-gold">天然ヒロイン</span></strong>
+                                        <p>本来のヒロイン。ルークの悪役演技を「私を守るための不器用な優しさ」と超解釈するメイド。ヤンデレたちの暗殺トラップをドジで無害化する天然強者。</p>
+                                    </div>
+                                    <div class="sub-entry">
+                                        <strong>勇者アレン <span class="label text-cyan">原作主人公</span></strong>
+                                        <p>ルークを王女監禁の悪徳領主と勘違いし、打倒に燃える熱血漢。アレンの死亡＝世界滅亡なため、ルークは陰ながら彼をステルス接待サポートする。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- セクション: ベストバウト -->
+                <section class="section-card border-gray timeline-section">
+                    <div class="card-header">
+                        <h2 class="section-title text-gray"><i class="fa-solid fa-swords"></i> TACTICAL OUTCOME (BEST BOUT)</h2>
+                    </div>
+                    
+                    <div class="battle-selector" id="battle-tabs">
+                        <button class="b-tab active" data-battle="fivehundred">傭兵500人スコアアタック</button>
+                        <button class="b-tab" data-battle="aegis">古代ゴーレムアイギス戦</button>
+                    </div>
+
+                    <div class="battle-content-board" id="battle-contents">
+                        
+                        <!-- 傭兵500人 -->
+                        <div class="battle-pane active" id="battle-fivehundred">
+                            <div class="sim-header">
+                                <span class="sim-tag bg-red">SCORE ATTACK LOG</span>
+                                <h3>傭兵団『赤き牙』500名消滅ログ</h3>
+                                <p class="sim-meta">男爵領領土侵入事件 // ルーク: 昼寝中</p>
+                            </div>
+                            <hr class="panel-divider">
+                            <p class="desc-para">
+                                ルークを無能と見下す父と兄が、500名の精鋭傭兵を率いて領地強奪に襲来。ルークが爆睡している間に、ヤンデレ三人は「ルーク様の安眠を妨げずに、誰が一番静かにゴミを処理できるか」の品評スコアアタックを開始。
+                            </p>
+                            <div class="static-log-box">
+                                <div class="log-row"><span class="time">[00:00]</span> イヴの対消滅レーザー射出。傭兵団の前衛が音もなく削られる。</div>
+                                <div class="log-row"><span class="time">[00:15]</span> セリアの神速の抜刀。影が通り過ぎるだけで無音の肉片と化す。</div>
+                                <div class="log-row text-red"><span class="time">[00:30]</span> エルリアの極大浄化の光柱。叫び声すら上がらず、たった数分で500名が完全消滅。ルークは起きない。</div>
+                            </div>
+                        </div>
+
+                        <!-- 古代ゴーレム -->
+                        <div class="battle-pane" id="battle-aegis">
+                            <div class="sim-header">
+                                <span class="sim-tag bg-cyan">CO-OP BOSS BATTLE</span>
+                                <h3>防衛兵器アイギス・ゴーレム戦</h3>
+                                <p class="sim-meta">古代遺跡最下層 // ルーク: 魔力酔い蓄積状態</p>
+                            </div>
+                            <hr class="panel-divider">
+                            <p class="desc-para">
+                                悪意を数倍で反射するシールドを持つボス戦。ヤンデレ3人がアリシアを事故死させようとする中、アリシアが純善なドジで落としたピッケルが殺意ゼロのためシールドを突破してコアへ。
+                                暴走レーザーに対し、ルークがアリシアの魔力（恩寵）を同期して一閃する。
+                            </p>
+                            <div class="static-log-box">
+                                <div class="log-row"><span class="time">[INIT]</span> アリシアの幸運による『ピッケルすっぽ抜け』がボスに直撃。シールド機能停止。</div>
+                                <div class="log-row"><span class="time">[ACTIVE]</span> ルーク、アリシアの超純粋魔力を簒奪し全快。</div>
+                                <div class="log-row text-cyan-bright font-bold"><span class="time">[FINISH]</span> 『白銀の断罪（アストラル・ブレイク）』でゴーレムを完全両断。</div>
+                                <div class="log-row text-red"><span class="time">[AFTER]</span> ルークとアリシアの接近を見たヤンデレ3人が嫉妬でキレて、遺跡ごと魔法で吹き飛ばしにくる。</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="yandere-footer">
+            <p class="archived-date">ULCER_REPORT // GAUGE: CRITICAL // SYNCHRONIZATION OVERLOAD</p>
+            <div class="footer-actions">
+                <a href="../index.html" class="back-link-bottom"><i class="fa-solid fa-heart-crack"></i> DISCONNECT FROM YANDERES</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

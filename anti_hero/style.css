@@ -1,0 +1,787 @@
+/* ==========================================================================
+   STYLE SHEET: ANTI HERO (アンチヒーロー・ディストラクション)
+   ========================================================================== */
+
+:root {
+    --bg-darker: #0d0908;
+    --bg-dark: #19110f;
+    --bg-panel: #241815;
+    --border-color: #3b2823;
+    
+    --crimson: #9e0c0c;
+    --crimson-bright: #e61f1f;
+    --crimson-glow: rgba(158, 12, 12, 0.4);
+    
+    --paper-tint: #d4c5b3;
+    --paper-dark: #2c201c;
+    
+    --text-primary: #f5ebe6;
+    --text-muted: #a6928d;
+    
+    --font-gothic: 'Creepster', cursive;
+    --font-heading: 'Cinzel', serif;
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-darker);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/* 背景演出 layers */
+.forest-silhouette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 30%, rgba(158, 12, 12, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.blood-splatters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.25;
+}
+
+.blood-drop {
+    position: absolute;
+    background: radial-gradient(circle, var(--crimson-bright) 10%, var(--crimson) 80%, transparent 100%);
+    border-radius: 50%;
+    transform: scale(0.6);
+    pointer-events: none;
+    animation: drip 1.5s ease-out forwards;
+}
+
+@keyframes drip {
+    0% { transform: translateY(-10px) scale(0.1); opacity: 1; }
+    50% { transform: translateY(100px) scale(0.8); opacity: 0.8; }
+    100% { transform: translateY(200px) scale(1); opacity: 0; }
+}
+
+.wanted-paper-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        radial-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 2px);
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* コンテナ */
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 戻るボタン */
+.back-link-floating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    background: rgba(25, 17, 15, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.back-link-floating:hover {
+    color: var(--crimson-bright);
+    border-color: var(--crimson);
+    box-shadow: 0 0 10px var(--crimson-glow);
+    transform: translateY(-2px);
+}
+
+/* ヘッダー */
+.killer-header {
+    border: 1px solid var(--border-color);
+    background: rgba(36, 24, 21, 0.85);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-image: linear-gradient(135deg, rgba(36, 24, 21, 0.95), rgba(20, 10, 8, 0.95));
+}
+
+.killer-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--crimson);
+    box-shadow: 0 2px 10px var(--crimson-glow);
+}
+
+.wanted-seal {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.header-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.titles-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.threat-level {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(158, 12, 12, 0.15);
+    border: 1px solid rgba(158, 12, 12, 0.4);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.text-red {
+    color: var(--crimson-bright);
+    text-shadow: 0 0 5px var(--crimson-glow);
+}
+
+.novel-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.3;
+    letter-spacing: 1px;
+}
+
+.novel-title .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    display: block;
+    margin-top: 5px;
+}
+
+/* 殺意メーター */
+.monitor-panel {
+    background: rgba(13, 9, 8, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    width: 320px;
+    padding: 12px;
+    font-family: var(--font-mono);
+}
+
+.panel-header {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+}
+
+.gauge-container {
+    height: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.gauge-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #5c0707, var(--crimson));
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 0 10px var(--crimson-glow);
+    transition: width 0.3s ease;
+}
+
+.gauge-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+    pointer-events: none;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.blinking {
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+.meter-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* グリッドレイアウト */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* カード共通 */
+.section-card {
+    background: rgba(25, 17, 15, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+}
+
+.stamp-blood {
+    font-family: var(--font-gothic);
+    font-size: 1.2rem;
+    border: 2px solid var(--crimson);
+    color: var(--crimson-bright);
+    padding: 2px 8px;
+    border-radius: 4px;
+    transform: rotate(-5deg);
+    text-shadow: 0 0 5px rgba(230, 31, 31, 0.4);
+    letter-spacing: 2px;
+    background: rgba(158, 12, 12, 0.1);
+}
+
+/* ボーダーバリエーション */
+.border-red {
+    border-color: rgba(158, 12, 12, 0.4);
+    box-shadow: inset 0 0 15px rgba(158, 12, 12, 0.05);
+}
+
+.border-red:hover {
+    border-color: var(--crimson-bright);
+    box-shadow: 0 0 15px rgba(158, 12, 12, 0.2), inset 0 0 15px rgba(158, 12, 12, 0.05);
+}
+
+.border-dark {
+    border-color: var(--border-color);
+}
+
+/* ストーリー */
+.quote-header {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    border-left: 3px solid var(--crimson);
+    padding-left: 12px;
+    margin-bottom: 18px;
+}
+
+.para {
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+/* 世界観設定 */
+.world-intro {
+    margin-bottom: 20px;
+}
+
+.world-intro h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.world-intro p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.design-collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .design-collage {
+        grid-template-columns: 1fr;
+    }
+}
+
+.visual-card {
+    background: rgba(13, 9, 8, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.visual-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.visual-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.border-crimson {
+    border-color: rgba(158, 12, 12, 0.3);
+}
+
+.border-crimson h4 {
+    color: var(--crimson-bright);
+}
+
+.border-black {
+    border-color: rgba(255,255,255,0.05);
+}
+
+.border-black h4 {
+    color: #a0a0a0;
+}
+
+/* キャラクター調書 */
+.char-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.char-tabs-layout {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 500px) {
+    .char-tabs-layout {
+        flex-direction: column;
+    }
+}
+
+.char-tab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 130px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+    .char-tab-list {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+}
+
+.char-btn {
+    background: rgba(13, 9, 8, 0.8);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 10px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 500px) {
+    .char-btn {
+        text-align: center;
+        flex: 1;
+        white-space: nowrap;
+    }
+}
+
+.char-btn:hover {
+    color: var(--text-primary);
+    border-color: rgba(158, 12, 12, 0.4);
+    background: rgba(158, 12, 12, 0.05);
+}
+
+.char-btn.active {
+    color: #fff;
+    border-color: var(--crimson);
+    background: rgba(158, 12, 12, 0.2);
+    box-shadow: 0 0 10px rgba(158, 12, 12, 0.25);
+}
+
+.char-content-wrapper {
+    flex-grow: 1;
+    background: rgba(13, 9, 8, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+    min-height: 220px;
+    position: relative;
+}
+
+.char-pane {
+    display: none;
+    height: 100%;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.char-pane.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.char-meta {
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.char-meta .role {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.char-meta h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.badge.restore {
+    background: #7c3aed;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 8px;
+}
+
+.char-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.char-stats {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.s-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.s-row:last-child {
+    margin-bottom: 0;
+}
+
+.s-row .lbl {
+    color: var(--text-muted);
+}
+
+.s-row .val {
+    color: var(--text-primary);
+}
+
+.s-row .rating {
+    color: var(--crimson-bright);
+    letter-spacing: 1px;
+}
+
+.scroll-box {
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.scroll-box::-webkit-scrollbar {
+    width: 4px;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+}
+
+.sub-entry {
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.sub-entry:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.sub-entry strong {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.sub-entry .label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    background: rgba(255,255,255,0.08);
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.sub-entry p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* ベストバウト (バトルログ) */
+.timeline-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.battle-selector {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.b-tab {
+    flex: 1;
+    background: rgba(13, 9, 8, 0.8);
+    border: none;
+    border-right: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.b-tab:last-child {
+    border-right: none;
+}
+
+.b-tab:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.b-tab.active {
+    color: #fff;
+    background: var(--crimson);
+    text-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+.battle-content-board {
+    background: rgba(13, 9, 8, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+    min-height: 180px;
+}
+
+.battle-pane {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.battle-pane.active {
+    display: block;
+}
+
+.sim-header {
+    margin-bottom: 12px;
+}
+
+.sim-header .sim-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+}
+
+.bg-red {
+    background: var(--crimson);
+    color: #fff;
+}
+
+.bg-gray {
+    background: #4a4543;
+    color: #fff;
+}
+
+.sim-header h3 {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.sim-header .sim-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.panel-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 12px 0;
+}
+
+.desc-para {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* フッター */
+.killer-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.archived-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.back-link-bottom {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 8px 20px;
+    border: 1px solid var(--border-color);
+    background: rgba(25, 17, 15, 0.5);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.back-link-bottom:hover {
+    color: var(--crimson-bright);
+    border-color: var(--crimson);
+    box-shadow: 0 0 10px var(--crimson-glow);
+}

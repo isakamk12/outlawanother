@@ -1,0 +1,842 @@
+/* ==========================================================================
+   STYLE SHEET: IMMORTAL DOCTOR (何度殺しても死ねないボクは...)
+   ========================================================================== */
+
+:root {
+    --bg-darker: #130b07; /* 煤けた暗い和風の古民家を想起させる極暗褐色 */
+    --bg-dark: #1b110b;   /* 深い木造建築の焦げ茶 */
+    --bg-panel: rgba(29, 18, 12, 0.85); /* 半透明パネル */
+    --border-color: #382417; /* 煤けた梁や柱の茶色 */
+    
+    --toxic: #00ff66; /* アシッド毒グリーン */
+    --toxic-glow: rgba(0, 255, 102, 0.4);
+    --toxic-dark: #008833;
+    
+    --blood: #b30c0c; /* 血塗られた赤 */
+    --blood-glow: rgba(179, 12, 12, 0.5);
+    
+    --text-primary: #f5eedc; /* 和紙・羊皮紙を思わせる褪せたベージュ */
+    --text-muted: #9c8b7f;    /* すすけた灰色がかった茶色 */
+    
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-serif: 'Noto Serif JP', serif;
+    --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-darker);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+/* 因習・古民家の煤けた背景演出 */
+.bg-scroll-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 10% 10%, rgba(0, 255, 102, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(179, 12, 12, 0.05) 0%, transparent 60%),
+        linear-gradient(rgba(19, 11, 7, 0.95), rgba(19, 11, 7, 0.95));
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 注連縄（しめなわ）をイメージした上部飾りライン */
+.shimenawa-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: repeating-linear-gradient(
+        45deg,
+        #4e311d,
+        #4e311d 10px,
+        #27180e 10px,
+        #27180e 20px
+    );
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    z-index: 99;
+}
+
+/* 画面全体毒霧オーバーレイ */
+.toxic-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.15) 0%, rgba(0, 100, 30, 0.4) 100%);
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.toxic-overlay.active {
+    opacity: 1;
+    animation: gasSwirl 6s ease-in-out infinite alternate;
+}
+
+@keyframes gasSwirl {
+    0% { transform: scale(1) translate(0, 0) rotate(0deg); filter: blur(4px); }
+    50% { transform: scale(1.1) translate(10px, -10px) rotate(2deg); filter: blur(6px); }
+    100% { transform: scale(1.05) translate(-10px, 10px) rotate(-1deg); filter: blur(5px); }
+}
+
+/* 死亡画面赤点滅オーバーレイ */
+.death-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(120, 0, 0, 0.85) 0%, rgba(10, 0, 0, 0.98) 100%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.death-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+    animation: vignettePulse 0.5s ease-in-out infinite alternate;
+}
+
+.death-alert-text {
+    font-family: var(--font-mono);
+    font-size: 5rem;
+    font-weight: 900;
+    color: #ff1111;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(100, 0, 0, 0.9);
+    letter-spacing: 10px;
+    margin-bottom: 15px;
+    transform: scale(0.9);
+    animation: textFlash 0.3s ease-in-out infinite alternate;
+}
+
+.death-sub-text {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: #ffaaaa;
+    letter-spacing: 3px;
+    animation: textFlash 0.3s ease-in-out infinite alternate 0.15s;
+}
+
+@keyframes vignettePulse {
+    0% { box-shadow: inset 0 0 80px rgba(255, 0, 0, 0.5); }
+    100% { box-shadow: inset 0 0 150px rgba(255, 0, 0, 0.8); }
+}
+
+@keyframes textFlash {
+    0% { opacity: 0.3; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1.02); }
+}
+
+/* コンテナ */
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* 戻るボタン */
+.back-link-floating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: rgba(19, 11, 7, 0.8);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.back-link-floating:hover {
+    border-color: var(--toxic);
+    color: var(--toxic);
+    box-shadow: 0 0 10px var(--toxic-glow);
+    text-shadow: 0 0 5px var(--toxic-glow);
+    transform: translateX(-3px);
+}
+
+/* ヘッダー */
+.novel-header {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-panel);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.ticker-wrapper {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid var(--border-color);
+    padding: 6px 15px;
+    margin: -25px -25px 20px -25px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.ticker-text i {
+    color: var(--toxic);
+}
+
+.header-main {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .header-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.novel-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.novel-title .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    display: block;
+    margin-top: 5px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.bg-toxic {
+    background-color: rgba(0, 255, 102, 0.15);
+    border: 1px solid var(--toxic);
+    color: var(--toxic);
+    text-shadow: 0 0 5px var(--toxic-glow);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.1);
+}
+
+/* バイタルモニター */
+.monitor-panel {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.panel-header {
+    background-color: rgba(56, 36, 23, 0.4);
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.vital-row {
+    margin-bottom: 10px;
+}
+
+.vital-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.meter-gauge {
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #33221a;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gauge-fill {
+    height: 100%;
+    transition: width 0.3s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+.gauge-fill.bg-toxic {
+    background: linear-gradient(90deg, #008833, var(--toxic));
+    box-shadow: 0 0 10px var(--toxic-glow);
+}
+
+.gauge-fill.bg-red {
+    background: linear-gradient(90deg, #660000, #ff1111);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.gauge-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+}
+
+.vital-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.text-toxic {
+    color: var(--toxic);
+    text-shadow: 0 0 5px var(--toxic-glow);
+}
+
+/* メインレイアウトグリッド */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+}
+
+@media (max-width: 1024px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.side-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* セクションカード */
+.section-card {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.border-toxic {
+    border-color: rgba(0, 255, 102, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 255, 102, 0.03);
+}
+
+.border-dark {
+    border-color: var(--border-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stamp {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 1px solid;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transform: rotate(3deg);
+    opacity: 0.85;
+}
+
+.stamp-red {
+    border-color: var(--blood);
+    color: var(--blood);
+    background-color: rgba(179, 12, 12, 0.05);
+}
+
+/* あらすじボディ */
+.quote-header {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--toxic);
+    padding-left: 10px;
+}
+
+.para {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    text-align: justify;
+    text-indent: 1em;
+}
+
+.para:last-child {
+    margin-bottom: 0;
+}
+
+/* 世界観 */
+.world-body h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.design-idea-box {
+    margin-top: 25px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px dashed var(--border-color);
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.design-idea-box h4 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.design-idea-box ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.design-idea-box li {
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-primary);
+}
+
+.design-idea-box li strong {
+    color: var(--toxic);
+}
+
+.design-idea-box li::before {
+    content: "■";
+    font-size: 0.6rem;
+    color: var(--toxic);
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+/* キャラクター切り替えタブ */
+.char-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.char-btn {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.char-btn:hover {
+    border-color: var(--toxic);
+    color: var(--toxic);
+}
+
+.char-btn.active {
+    background-color: var(--bg-dark);
+    border-color: var(--toxic);
+    color: var(--toxic);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.15);
+}
+
+/* キャラクターペイン */
+.char-pane {
+    display: none;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.char-pane.active {
+    display: grid;
+}
+
+@media (max-width: 600px) {
+    .char-pane {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.char-avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--bg-dark);
+    border: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    gap: 5px;
+}
+
+.char-avatar-placeholder i {
+    font-size: 1.8rem;
+}
+
+.char-avatar-placeholder.robin-color {
+    border-color: var(--toxic);
+    color: var(--toxic);
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+}
+
+.char-avatar-placeholder.hanna-color {
+    border-color: #f1c40f;
+    color: #f1c40f;
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.15);
+}
+
+.char-avatar-placeholder.chatnoir-color {
+    border-color: #9b59b6;
+    color: #9b59b6;
+    box-shadow: 0 0 15px rgba(155, 89, 182, 0.15);
+}
+
+.char-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    margin-bottom: 5px;
+}
+
+.char-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+/* ギミックコンソール */
+.console-card {
+    background-color: #0b0704; /* 黒に近い土壁 */
+}
+
+.console-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.console-section {
+    border-bottom: 1px solid rgba(56, 36, 23, 0.6);
+    padding-bottom: 15px;
+}
+
+.console-section:last-of-type {
+    border-bottom: none;
+}
+
+.console-section h5 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.console-tip {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.console-btn {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.btn-danger {
+    background-color: rgba(179, 12, 12, 0.1);
+    border-color: var(--blood);
+    color: #ff3333;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background-color: var(--blood);
+    color: #fff;
+    box-shadow: 0 0 15px var(--blood-glow);
+}
+
+.btn-danger:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.target-select-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-toxic-attack {
+    flex: 1;
+    background-color: rgba(0, 255, 102, 0.08);
+    border-color: var(--toxic-dark);
+    color: var(--toxic);
+}
+
+.btn-toxic-attack:hover:not(:disabled) {
+    background-color: var(--toxic);
+    border-color: var(--toxic);
+    color: #130b07;
+    box-shadow: 0 0 15px var(--toxic-glow);
+}
+
+.btn-toxic-attack:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ログ端末 */
+.console-terminal {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(56, 36, 23, 0.8);
+    border-radius: 6px;
+    overflow: hidden;
+    font-family: var(--font-mono);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+}
+
+.terminal-header {
+    background-color: rgba(56, 36, 23, 0.3);
+    border-bottom: 1px solid rgba(56, 36, 23, 0.8);
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-header .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-header .dot.red { background-color: #ef4444; }
+.terminal-header .dot.yellow { background-color: #f59e0b; }
+.terminal-header .dot.green { background-color: #10b981; }
+
+.terminal-header .title {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.terminal-logs {
+    padding: 12px;
+    height: 160px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.terminal-logs::-webkit-scrollbar {
+    width: 6px;
+}
+.terminal-logs::-webkit-scrollbar-track {
+    background: transparent;
+}
+.terminal-logs::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 3px;
+}
+
+.log-line {
+    word-break: break-all;
+}
+
+.log-line.system-msg {
+    color: var(--text-primary);
+}
+
+.log-line.suicide-msg {
+    color: #ff3333;
+}
+
+.log-line.revive-msg {
+    color: #39ff14;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+}
+
+.log-line.toxic-msg {
+    color: #00ffaa;
+}
+
+/* ベストバウト */
+.bout-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bout-card {
+    border-bottom: 1px solid rgba(56, 36, 23, 0.6);
+    padding-bottom: 15px;
+}
+
+.bout-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.bout-title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.bout-title span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--toxic);
+    border: 1px solid var(--toxic);
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+.bout-title h4 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.para-sm {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* 全画面振動アニメーション */
+.screen-vibrate {
+    animation: vibrate 0.25s linear infinite;
+}
+
+@keyframes vibrate {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-2px, 3px); }
+    40% { transform: translate(3px, -1px); }
+    60% { transform: translate(-3px, -2px); }
+    80% { transform: translate(2px, 1px); }
+    100% { transform: translate(0, 0); }
+}

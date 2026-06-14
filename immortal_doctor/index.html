@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>何度殺しても死ねないボクは - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『愛するおばあちゃんが死んで以来、何度殺しても死ねないボクは、毒魔法とかいろいろ強過ぎて向こうが死にまくるけど、死ねない理由が知りたい！』の作品レビュー。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 画面全体の毒霧オーバーレイ -->
+    <div class="toxic-overlay" id="toxic-overlay"></div>
+    <!-- 画面全体の死亡時画面赤点滅オーバーレイ -->
+    <div class="death-overlay" id="death-overlay">
+        <div class="death-alert-text">STATUS: DEAD</div>
+        <div class="death-sub-text">IMMORTAL CURSE ACTIVATING...</div>
+    </div>
+    
+    <div class="bg-scroll-effect"></div>
+    <div class="shimenawa-line"></div>
+
+    <div class="container">
+        <!-- 戻るボタン -->
+        <a href="../index.html" class="back-link-floating">
+            <i class="fa-solid fa-skull"></i> EXIT SEITAN_NET
+        </a>
+
+        <!-- ヘッダー -->
+        <header class="novel-header">
+            <div class="ticker-wrapper">
+                <span class="ticker-text"><i class="fa-solid fa-biohazard"></i> SYSTEM: ACTIVE // SUBJECT: ROBIN // CURSE TYPE: UNDYING IMMORTALITY // POISON STRENGTH: MAXIMUM // REGION: SEITAN VILLAGE</span>
+            </div>
+
+            <div class="header-main">
+                <div class="titles-block">
+                    <span class="status-badge bg-toxic"><i class="fa-solid fa-triangle-exclamation"></i> COMPLIANCE: SR (極度自己治癒・毒劇物無双)</span>
+                    <h1 class="novel-title">何度殺しても死ねないボクは、<br><span class="subtitle">毒魔法とかいろいろ強過ぎて向こうが死にまくるけど、死ねない理由が知りたい！</span></h1>
+                </div>
+
+                <!-- リアルタイムバイタルメーター -->
+                <div class="monitor-panel" id="vital-panel">
+                    <div class="panel-header">VITAL SIGNS & STATUS (被検体：ロビンの生命状態)</div>
+                    <div class="panel-body">
+                        <div class="vital-row">
+                            <span class="vital-label">HP RATE:</span>
+                            <div class="meter-gauge">
+                                <div class="gauge-fill bg-toxic" id="hp-bar" style="width: 100%;"></div>
+                                <span class="gauge-label" id="hp-text">100% (ALIVE)</span>
+                            </div>
+                        </div>
+                        <div class="vital-meta">
+                            STATUS: <strong class="text-toxic" id="vital-status">ALIVE (死を渇望中)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メインレイアウト -->
+        <main class="grid-layout">
+            <!-- 左カラム: あらすじ ＆ 世界観 -->
+            <div class="main-column">
+                
+                <!-- あらすじ -->
+                <section class="section-card border-toxic">
+                    <div class="card-header">
+                        <h2 class="section-title text-toxic"><i class="fa-solid fa-book-open"></i> CASE DOSSIER: SUMMARY (あらすじ)</h2>
+                        <span class="stamp stamp-red">UNDYING</span>
+                    </div>
+
+                    <div class="story-body">
+                        <h3 class="quote-header text-toxic">「死を望む『ボク』の絶望と、血塗られた異世界旅路」</h3>
+                        <p class="para">
+                            愛するおばあちゃんが死んで以来、どんな手段を用いても、どれだけ致命傷を負わされても「死ねない」身体になってしまった元医師の少年・ロビン。
+                            自らの死を渇望する彼は、「ボクを殺せるほど強い存在」を求め、エルフの少女ハンナと共に過酷な旅路へと踏み出す。
+                        </p>
+                        <p class="para">
+                            ロビンの操る規格外の「毒魔法」と、何度殺されても瞬時に復元する「不死の異能」は、出会う敵対者や怪異をことごとく蹂躙し、本人の意思とは裏腹に圧倒的な「無双劇」を巻き起こしてしまう。
+                            旅の道中で様々な因習や危機を乗り越え、エルフの少女ハンナとの深い絆を紡ぎ、やがて結婚という安息に辿り着くまでの過酷で凄惨な冒険譚。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 世界観とデザイン -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-torii-gate"></i> WORLD & DESIGN (因習と和洋折衷)</h2>
+                    </div>
+
+                    <div class="world-body">
+                        <h3>近代魔法技能と、因習深い異世界のコントラスト</h3>
+                        <p class="para">
+                            物語の舞台は、近代的な魔法技術が芽生えつつも、中世の因習や血塗られた呪術的風土が色濃く残る、極めて閉鎖的で不気味な異世界。
+                            特にロビンの出生に関わる「セイタン村」は、因習の闇に閉ざされた生贄の風習や、おどろおどろしい呪いの残り香が漂う狂気の地域である。
+                        </p>
+
+                        <div class="design-idea-box">
+                            <h4><i class="fa-solid fa-compass-drafting text-toxic"></i> セイタン村の「因習」を活かしたWebデザイン案</h4>
+                            <ul>
+                                <li><strong>煤けた古民家ブラウン ＆ アシッドグリーン</strong>: 煤汚れた木造建築や土壁の暗い褐色に、毒々しい蛍光緑の魔法光を対比させ、異様な緊張感を演出。</li>
+                                <li><strong>呪符と注連縄のフレームワーク</strong>: 各見出しやコンテンツ枠に、朽ち果てた和縄や、血文字の書かれた呪符のグラフィックパーツを配置。</li>
+                                <li><strong>和洋折衷の歪み</strong>: 近代的なシステム画面風のローディングやスキャンラインの裏で、和風のおどろおどろしい鳥居や和紙のテクスチャがゆらゆらと蠢く「歪んだ調和」を表現。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- キャラクター紹介 -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-users"></i> PERSONA FILE (キャラクター紹介)</h2>
+                    </div>
+
+                    <div class="char-tabs">
+                        <button class="char-btn active" data-char="robin">ロビン</button>
+                        <button class="char-btn" data-char="hanna">ハンナ</button>
+                        <button class="char-btn" data-char="chatnoir">シャノワ</button>
+                    </div>
+
+                    <div class="char-content">
+                        <!-- ロビン -->
+                        <div class="char-pane active" id="pane-robin">
+                            <div class="char-avatar-placeholder robin-color">
+                                <i class="fa-solid fa-user-doctor"></i>
+                                <span>ROBIN</span>
+                            </div>
+                            <div class="char-info">
+                                <h3>ロビン / Robin</h3>
+                                <p class="char-desc"><strong>「ボクはただ、死にたいだけなのに。」</strong></p>
+                                <p class="para">
+                                    何度殺されても死ねない身体を持つ、死を求める医師。
+                                    おばあちゃんを失った絶望から自傷・自殺を繰り返すが、異常な超高速細胞再生と絶対不死の呪いによって常に100%まで強制復元される。
+                                    医師としての解剖学的知識を応用した、極めて緻密で致死性の高い「毒魔法」を自在に操り、意図せず周囲の生態系を更地にする。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ハンナ -->
+                        <div class="char-pane" id="pane-hanna">
+                            <div class="char-avatar-placeholder hanna-color">
+                                <i class="fa-solid fa-person-praying"></i>
+                                <span>HANNA</span>
+                            </div>
+                            <div class="char-info">
+                                <h3>ハンナ / Hanna</h3>
+                                <p class="char-desc"><strong>「お願いだから、私の目の前で死のうとしないで！」</strong></p>
+                                <p class="para">
+                                    ロビンと出会い、その過酷な旅を共にするエルフの少女。
+                                    ロビンがことあるごとに自殺を試みたり、圧倒的な毒魔法で敵を消滅させる様子に頭を抱えつつも、彼の孤独と悲哀を誰よりも理解し、支え続ける。
+                                    過酷な旅路を経てロビンと心を通わせ、最終的に夫婦の誓いを交わす。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- シャノワ -->
+                        <div class="char-pane" id="pane-chatnoir">
+                            <div class="char-avatar-placeholder chatnoir-color">
+                                <i class="fa-solid fa-cat"></i>
+                                <span>CHAT NOIR</span>
+                            </div>
+                            <div class="char-info">
+                                <h3>シャノワ / Chat Noir</h3>
+                                <p class="char-desc"><strong>「やれやれ、今回の強制送還もまた派手にやりましたね。」</strong></p>
+                                <p class="para">
+                                    ロビンとハンナの旅に同行する、冷めた目をした主要協力者。
+                                    狂ったような破壊力と再生力を持つロビンに呆れながらも、的確なサポートと冷静な助言を行うポジション。
+                                    ロビンがやらかした大規模な壊滅事件（妖精の集落など）の処理や、国からの王都送還令の仲介などを担当する。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右カラム: ギミックコンソール ＆ ベストバウト -->
+            <div class="side-column">
+                
+                <!-- ギミックコンソール: 自殺自動蘇生 ＆ 毒霧放出 -->
+                <section class="section-card border-toxic console-card">
+                    <div class="card-header">
+                        <h2 class="section-title text-toxic"><i class="fa-solid fa-terminal"></i> INTERACTIVE CONSOLE</h2>
+                    </div>
+
+                    <div class="console-body">
+                        <!-- 自殺シミュレータ -->
+                        <div class="console-section">
+                            <h5>【不死の呪い：自傷・蘇生テスト】</h5>
+                            <p class="console-tip">ロビンの不死の肉体を検証するための、強制的バイタル停止コマンドです。</p>
+                            <button class="console-btn btn-danger" id="btn-suicide">
+                                <i class="fa-solid fa-skull"></i> 自殺を試行する (Attempt Suicide)
+                            </button>
+                        </div>
+
+                        <!-- 毒魔法放出 -->
+                        <div class="console-section">
+                            <h5>【広域毒魔法：『蝕む常緑の霧』】</h5>
+                            <p class="console-tip">高濃度致死毒の霧を放出し、指定領域の全生命反応を無効化します。</p>
+                            <div class="target-select-buttons">
+                                <button class="console-btn btn-toxic-attack" data-target="fairy">
+                                    <i class="fa-solid fa-circle-radiation"></i> Target: 妖精の集落
+                                </button>
+                                <button class="console-btn btn-toxic-attack" data-target="orc">
+                                    <i class="fa-solid fa-fort-awesome"></i> Target: オークの城
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ログ表示端末 -->
+                        <div class="console-terminal">
+                            <div class="terminal-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="title">CONSOLE LOGS</span>
+                            </div>
+                            <div class="terminal-logs" id="terminal-logs">
+                                <div class="log-line text-muted">>> SYSTEM INITIALIZED. AWAITING INPUT...</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ベストバウトレビュー -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-fire-flame-curved"></i> BEST BOUTS (戦闘レビュー)</h2>
+                    </div>
+
+                    <div class="bout-list">
+                        <!-- バウト1 -->
+                        <div class="bout-card">
+                            <div class="bout-title text-toxic">
+                                <span>Bout 01</span>
+                                <h4>ロビン vs ゴブリンマザー (セイタン村外縁)</h4>
+                            </div>
+                            <p class="para">
+                                <strong>「どれだけ貪り食われても再生し、内側から腐食させる悪夢の戦い」</strong>
+                            </p>
+                            <p class="para-sm text-muted">
+                                セイタン村の外縁部に巣食う巨大な怪異「ゴブリンマザー」との対決。ロビンは巨大な爪に腹部を深々と抉られ、臓物を撒き散らす瀕死の重傷を負う。
+                                しかし、死ねないロビンは血を流しながら冷徹に微笑み、傷口からゴブリンマザーの体内へ直接「超濃縮毒」を逆流させる。
+                                喰らった怪異が内側から急速に溶け落ちていく恐怖の光景は、ロビンの異様さと「不死×毒」の相性の極悪さを見せつけた。
+                            </p>
+                        </div>
+
+                        <!-- バウト2 -->
+                        <div class="bout-card">
+                            <div class="bout-title text-toxic">
+                                <span>Bout 02</span>
+                                <h4>妖精の集落壊滅 ＆ 王都送還令</h4>
+                            </div>
+                            <p class="para">
+                                <strong>「防壁ごと生命を溶かし去る、悪魔のごとき広域毒魔法」</strong>
+                            </p>
+                            <p class="para-sm text-muted">
+                                ロビンと対立した妖精の集落。防壁を構え、無数の遠距離魔法で対抗しようとする妖精たちに対し、ロビンはただ一度の詠唱で『蝕む常緑の霧』を展開。
+                                霧に触れた妖精たちは、防御魔法や結界ごと肉体をドロドロに溶かされ、集落の巨木もろとも融解・消滅。
+                                生存者が一人も残らなかったこの一件により、国家の上層部はロビンを「歩く災害」と認定し、王都へ強制送還する事態に発展する。
+                            </p>
+                        </div>
+
+                        <!-- バウト3 -->
+                        <div class="bout-card">
+                            <div class="bout-title text-toxic">
+                                <span>Bout 03</span>
+                                <h4>オークの城での無双劇</h4>
+                            </div>
+                            <p class="para">
+                                <strong>「単身で城砦を毒の海に変え、蹂躙し尽くす殲滅戦」</strong>
+                            </p>
+                            <p class="para-sm text-muted">
+                                堅牢な石造りのオークの城に、ロビンが正面から一人で乗り込む。
+                                矢の雨を浴び、棍棒で叩き潰されて肉片になろうとも、次の瞬間には五体満足で立ち上がるロビンの姿に、屈強なオークたちがパニックに陥る。
+                                仕上げに城全体を包む規模の致死毒を散布し、城の構造物をドロドロに溶解させながら、数千のオークを一人残らず消滅させた、まさに「天災」と呼ぶにふさわしい無双劇。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンチヒーロー・ディストラクション -成り代わりシリアルキラーは異世界でも愉しみたい- - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『アンチヒーロー・ディストラクション -成り代わりシリアルキラーは異世界でも愉しみたい-』の作品レビュー。">
+    
+    <!-- Google Fonts: ゴシック、手配書風レトロ、等幅フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Share+Tech+Mono&family=Cinzel:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景演出: 深い森、複数の月、飛び散る血痕、中世の手配書調紙質 -->
+    <div class="forest-silhouette"></div>
+    <div class="blood-splatters" id="blood-spatter-layer"></div>
+    <div class="wanted-paper-texture"></div>
+
+    <div class="container">
+        <!-- 浮遊式戻るボタン (TERMINATE) -->
+        <a href="../index.html" class="back-link-floating">
+            <i class="fa-solid fa-skull"></i> TERMINATE INTERACTION
+        </a>
+
+        <!-- シリアルキラー・手配ヘッダー -->
+        <header class="killer-header">
+            <div class="wanted-seal">
+                <span>WANTED DEAD OR ALIVE // WANTED BY CHURCH & ROYAL ORDER</span>
+            </div>
+            
+            <div class="header-main-content">
+                <div class="titles-block">
+                    <span class="threat-level text-red"><i class="fa-solid fa-skull-crossbones"></i> EXTREME DANGER: SERIAL KILLER INCARNATE</span>
+                    <h1 class="novel-title">アンチヒーロー・ディストラクション<br><span class="subtitle">-成り代わりシリアルキラーは異世界でも愉しみたい-</span></h1>
+                </div>
+                
+                <!-- 殺意の渇き（KILL LUST）ゲージ -->
+                <div class="monitor-panel" id="kill-lust-panel">
+                    <div class="panel-header">KILLING LUST METER (殺意の渇き度)</div>
+                    <div class="panel-body">
+                        <div class="gauge-container" id="lust-trigger-area">
+                            <div class="gauge-fill" id="lust-bar" style="width: 95%;"></div>
+                            <span class="gauge-label blinking">CLICK TO RELEASE / 殺害の実行</span>
+                        </div>
+                        <div class="meter-meta">STATUS: <strong class="text-red" id="lust-status">CRITICAL ARUSAL</strong></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メイングリッド -->
+        <main class="grid-layout">
+            <!-- 左カラム: あらすじ & 世界観 -->
+            <div class="main-column">
+                
+                <!-- セクション: あらすじ (指名手配書風) -->
+                <section class="section-card border-red wanted-style">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-scroll"></i> DOSSIER: REPORT</h2>
+                        <span class="stamp-blood">MURDERER</span>
+                    </div>
+                    
+                    <div class="story-body">
+                        <h3 class="quote-header">「『狂気』が『剣と魔法』に出会う、異色すぎるダークファンタジー開幕！」</h3>
+                        <p class="para">
+                            裕福なエリートでありながら、「殺し」にしか生きる実感を得られない生粋のシリアルキラー、ネイト・ヘイル。元の世界で惨めに死んだはずの彼が目覚めると、そこは異世界の野盗の馬車の中だった。
+                        </p>
+                        <p class="para">
+                            屈強な傭兵崩れの身体を手に入れた彼は、躊躇なく周囲の野盗たちを皆殺しにし、誘拐されていたサキュバスのハーフの預言者・サラヴェリーナの首に「隷属の紋様」を刻み込んで己の奴隷とする。
+                        </p>
+                        <p class="para">
+                            魔王の覚醒が近いとされる人身売買や差別が横行する暴力の世界で、彼は己の渇きと「殺しの悦び」を満たすため、欲望のままに最狂のアンチヒーローとして旅を開始する。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- セクション: 世界観とキラービジュアル -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-mountain-showers"></i> WORLD & DARK ATMOSPHERE</h2>
+                    </div>
+                    
+                    <div class="world-intro">
+                        <h3>差別、人身売買、魔王の目覚めが交差する無慈悲な世界</h3>
+                        <p>ベースは剣と魔法の王道ファンタジー。しかしその実態は、半魔や魔族が容赦なく迫害される過酷な超ダークファンタジー。魔法の効力を高める「ルミナサイト」や、サラヴェリーナの操る「復元魔法（リヴァート）」といった独自設定がスリルを醸し出します。</p>
+                    </div>
+
+                    <div class="design-collage">
+                        <div class="visual-card border-crimson">
+                            <h4>ビジュアルトーン (血と泥のゴシック)</h4>
+                            <p>漆黒と鮮血の赤を基調に、ネイトの「アンバーの瞳と赤さび色の髪」、サラヴェリーナの「ブロンドヘアと紫水晶の瞳」の色彩が怪しく映えるカラーコントラスト。</p>
+                        </div>
+                        
+                        <div class="visual-card border-black">
+                            <h4>夜空の月と化け猫オヴィンニク</h4>
+                            <p>複数の月が浮かぶ夜空、薄暗い森、寂れた村の星型看板。そして、火の玉を吐く黒豹のような怪獣「オヴィンニク」の不気味なシルエットが危険度を演出。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右カラム: キャラクター & ベストバウト -->
+            <div class="side-column">
+                
+                <!-- セクション: WANTED (指名手配) キャラクターカルテ -->
+                <section class="section-card border-red char-panel">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-users"></i> WANTED DEAD OR ALIVE</h2>
+                    </div>
+                    
+                    <div class="char-tabs-layout">
+                        <div class="char-tab-list" id="char-tab-list">
+                            <button class="char-btn active" data-char="nate">ネイト</button>
+                            <button class="char-btn" data-char="sara">サラヴェリーナ</button>
+                            <button class="char-btn" data-char="villains">村のクズ親子</button>
+                        </div>
+                        
+                        <div class="char-content-wrapper" id="char-content">
+                            <!-- ネイト -->
+                            <div class="char-pane active" id="pane-nate">
+                                <div class="char-meta">
+                                    <span class="role text-red">SERIAL KILLER / SOUL OWNER</span>
+                                    <h3>ネイト・ヘイル</h3>
+                                </div>
+                                <p class="char-desc">元世界の知的シリアルキラー。異世界で傭兵の肉体に成り代わった。殺しそのものを至上の快楽とする異常者だが、極めて理知的で口が回り、自分の「所有物」が傷つけられるのを激しく拒絶する歪んだ美学を持つ。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">殺害技術:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">倫理観:</span> <span class="val">NULL (測定不能)</span></div>
+                                    <div class="s-row"><span class="lbl">特徴:</span> <span class="val">赤さび色の髪、アンバーの瞳。</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- サラヴェリーナ -->
+                            <div class="char-pane" id="pane-sara">
+                                <div class="char-meta">
+                                    <span class="role text-red">PROPHET / HYBRID SUCCUBUS</span>
+                                    <h3>サラヴェリーナ <span class="badge restore">復元魔法</span></h3>
+                                </div>
+                                <p class="char-desc">サキュバスと人間のハーフで預言者。魔性かつグラマラスな美貌を持つが、危機管理能力が極めて低く、ネイトからは「バカでチョロい」と扱われ、首に隷属の紋様を刻まれてしまう。生命力を対価に対象を完璧に戻す「復元魔法（リヴァート）」の使い手。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">復元魔法:</span> <span class="val rating">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">危機回避:</span> <span class="val rating">★☆☆☆☆ (ポンコツ)</span></div>
+                                    <div class="s-row"><span class="lbl">外見:</span> <span class="val">ブロンドヘア、紫水晶の瞳。</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 村のクズ親子 -->
+                            <div class="char-pane" id="pane-villains">
+                                <div class="char-meta">
+                                    <span class="role text-gray">TARGETS / DEVIANTS</span>
+                                    <h3>ニクラス ＆ ベルジェ</h3>
+                                </div>
+                                <div class="scroll-box">
+                                    <div class="sub-entry">
+                                        <strong>ニクラス <span class="label text-red">チンピラ息子</span></strong>
+                                        <p>宿屋の末息子。サラヴェリーナを手籠めにしようとしネイトに叩きのめされ、逆恨みで村人を扇動しネイトたちを火あぶりにしようとした小悪党。</p>
+                                    </div>
+                                    <div class="sub-entry">
+                                        <strong>ベルジェ <span class="label">宿屋女将</span></strong>
+                                        <p>ニクラスの母親。息子のクズ行為を黙認・庇護する、これまた小悪党の系譜。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- セクション: ベストバウト -->
+                <section class="section-card border-gray timeline-section">
+                    <div class="card-header">
+                        <h2 class="section-title text-gray"><i class="fa-solid fa-person-running"></i> BATTLE LOGS</h2>
+                    </div>
+                    
+                    <div class="battle-selector" id="battle-tabs">
+                        <button class="b-tab active" data-battle=" bandits">VS 野盗(覚醒戦)</button>
+                        <button class="b-tab" data-battle="niklas">VS ニクラス強襲</button>
+                        <button class="b-tab" data-battle="chase">オヴィンニク馬車追撃</button>
+                    </div>
+
+                    <div class="battle-content-board" id="battle-contents">
+                        <!-- 野盗戦 -->
+                        <div class="battle-pane active" id="battle-bandits">
+                            <div class="sim-header">
+                                <span class="sim-tag bg-red">FIRST INCARNATION</span>
+                                <h3>異世界初陣・覚醒の殺戮</h3>
+                                <p class="sim-meta">野盗の護送馬車 // ネイト: 狂気覚醒状態</p>
+                            </div>
+                            <hr class="panel-divider">
+                            <p class="desc-para">
+                                異世界の身体能力とネイトのシリアルキラーとしての渇きが完璧に噛み合った瞬間。流れるような剣技で次々と野盗を屠り、首を刎ね、喉を裂く。ネイトが「ここでは殺していい！」と歓喜に震えた背徳の初バトル。
+                            </p>
+                        </div>
+
+                        <!-- ニクラス強襲 -->
+                        <div class="battle-pane" id="battle-niklas">
+                            <div class="sim-header">
+                                <span class="sim-tag bg-red">RECLAIM PROPERTY</span>
+                                <h3>サラヴェリーナ強奪奪還戦</h3>
+                                <p class="sim-meta">村の廃小屋 // ネイト: 激怒状態</p>
+                            </div>
+                            <hr class="panel-divider">
+                            <p class="desc-para">
+                                拉致されたサラヴェリーナを奪い返すため、ネイトが単身でチンピラ共の小屋を急襲。割れたワインボトルの破片で喉笛を掻き切り、死体の頭を敵の顔面に叩き込むなど、一切の躊躇を捨てた無慈悲なバイオレンスアクション。
+                            </p>
+                        </div>
+
+                        <!-- 馬車チェイス -->
+                        <div class="battle-pane" id="battle-chase">
+                            <div class="sim-header">
+                                <span class="sim-tag bg-gray">SPEED & THRILL</span>
+                                <h3>対オヴィンニク馬車カーチェイス</h3>
+                                <p class="sim-meta">夜の街道 // 魔獣: 火の玉連射化け猫群</p>
+                            </div>
+                            <hr class="panel-divider">
+                            <p class="desc-para">
+                                火の玉を狂ったように連射する「オヴィンニク」の群れに追われながら、激しく走る馬車の上でのデッドヒート。
+                                第21話では、縛られた緊迫状態からチンピラ兄弟を陶器の破片一つで瞬殺し、オヴィンニクの群れにステゴロで挑もうとする限界アドレナリンバトル。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="killer-footer">
+            <p class="archived-date">LOG_INDEX: #ANTIH-0019 // OWNED BY THE SERIAL KILLER // NOTIFICATION: INNOCENT DIES HERE</p>
+            <div class="footer-actions">
+                <a href="../index.html" class="back-link-bottom"><i class="fa-solid fa-skull"></i> TERMINATE TERMINAL</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

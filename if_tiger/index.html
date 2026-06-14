@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>いっそ私が虎ならば - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『いっそ私が虎ならば』の作品レビュー。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景演出: 現代都市のアスファルトグリッド、浮遊する砂塵粒子、暗いサイバー光 -->
+    <div class="urban-concrete-bg"></div>
+    <div class="sand-particles" id="sand-container"></div>
+    <div class="monitor-scanlines"></div>
+
+    <div class="container">
+        <!-- 戻るボタン -->
+        <a href="../index.html" class="back-link-floating">
+            <i class="fa-solid fa-house-laptop"></i> LEAVE FIELD_NET
+        </a>
+
+        <!-- ヘッダー -->
+        <header class="tiger-header">
+            <div class="system-status-ticker">
+                <span class="ticker-text"><i class="fa-solid fa-shield-cat"></i> PLANET: THEOSPERA // AGENT: MUTSURI SAHOU // POSITION: D-RANK ADVENTURER // ANOMALY CAPACITY: CLASSIFIED</span>
+            </div>
+            
+            <div class="header-main-layout">
+                <div class="titles-block">
+                    <span class="threat-badge text-gold"><i class="fa-solid fa-radiation"></i> CAPACITY: SANDIFICATION (触れる者を砂化する異能)</span>
+                    <h1 class="novel-title">いっそ私が虎ならば</h1>
+                </div>
+                
+                <!-- 主人公精神ストレスモニター -->
+                <div class="monitor-panel" id="psyche-panel">
+                    <div class="panel-header">MENTAL MONITOR (睦理の精神状態)</div>
+                    <div class="panel-body">
+                        <div class="status-row">
+                            <span class="label">自己評価:</span>
+                            <div class="meter-gauge">
+                                <div class="gauge-fill bg-red" id="esteem-bar" style="width: 3%;"></div>
+                                <span class="gauge-val">3% (ゴミ以下)</span>
+                            </div>
+                        </div>
+                        <div class="status-row">
+                            <span class="label">人間不安度:</span>
+                            <div class="meter-gauge">
+                                <div class="gauge-fill bg-orange" id="anxiety-bar" style="width: 97%;"></div>
+                                <span class="gauge-val">97% (極限)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メイングリッド -->
+        <main class="grid-layout">
+            <!-- 左カラム: あらすじ ＆ 世界観 -->
+            <div class="main-column">
+                
+                <!-- セクション: あらすじ -->
+                <section class="section-card border-gold">
+                    <div class="card-header">
+                        <h2 class="section-title text-gold"><i class="fa-solid fa-scroll"></i> OFFICIAL RECORD: SUMMARY</h2>
+                        <span class="stamp-confidential">THEO_SECURED</span>
+                    </div>
+                    
+                    <div class="story-body">
+                        <h3 class="quote-header text-gold">「絶世の美女の正体は、トラウマを抱えた元・男性！？」</h3>
+                        <p class="para">
+                            地球で就職や人間関係に挫折し、「欠陥品」としての人生から逃げ続けていた主人公。気付けば異世界（惑星テオスペラ）に転移し、黒髪ロングの絶世の美女「佐部睦理（さほうむつり）」へと姿を変えていた。
+                        </p>
+                        <p class="para">
+                            舞台は、コンビニや電車がある現代日本そっくりな国家「秋津洲（あきつしま）」。彼女は自身の正体や、視線や接触だけで対象を砂に変える異常なチート能力を隠しながら、ギルド「北洋会」の冒険者として魔獣を狩り、静かに生きていこうとする。
+                        </p>
+                        <p class="para">
+                            しかし、不用意な行動から少しずつ彼女の実力の「異常性」が周囲にバレ始め、平和な日常に波風が立ち始めて……。最強の異能を持ちながら、自己評価が底辺で怯える主人公の葛藤を描く現代ファンタジー。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- セクション: 世界観とビジュアルコンセプト -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-city"></i> URBAN FANTASY SETTING</h2>
+                    </div>
+                    
+                    <div class="world-intro">
+                        <h3>現代社会 × 冒険者のアーバンライフ</h3>
+                        <p class="para">
+                            剣と魔法のファンタジーではなく、監査員がスーツを着ていたり、テレビニュースが流れたり、ビールとコンビニ弁当で晩酌したりする「現代社会」がベース。そこに「魔獣」「魔石」「魔力発電所」といった要素が日常の延長線として溶け込んでいます。
+                        </p>
+                    </div>
+
+                    <div class="contrast-layout">
+                        <div class="side-card border-gold-sub">
+                            <h4>退廃的な地方都市の風景</h4>
+                            <p>住宅街と田畑、狭い路地、そして街から少し離れた鬱蒼とした森といった、日常と非日常の境界線を感じさせるアッシュグレーのアスファルト調デザイン。</p>
+                        </div>
+                        
+                        <div class="side-card border-gray-sub">
+                            <h4>無骨な「行動服」</h4>
+                            <p>冒険者たちの服装はミリタリーや作業着に近い無骨な「行動服」や半長靴。ファンタジー的な装飾を排した無骨なコンバット仕様。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右カラム: キャラクター & 砂化能力コンソール -->
+            <div class="side-column">
+                
+                <!-- セクション: キャラクター -->
+                <section class="section-card border-gold char-panel">
+                    <div class="card-header">
+                        <h2 class="section-title text-gold"><i class="fa-solid fa-users"></i> ADVENTURER LIST (人物調査)</h2>
+                    </div>
+                    
+                    <div class="char-tabs-layout">
+                        <div class="char-tab-list" id="char-tab-list">
+                            <button class="char-btn active" data-char="mutsuri">佐部睦理</button>
+                            <button class="char-btn" data-char="hamai">浜井</button>
+                            <button class="char-btn" data-char="tabashi">田橋</button>
+                            <button class="char-btn" data-char="aiga">越知愛河</button>
+                        </div>
+                        
+                        <div class="char-content-wrapper" id="char-content">
+                            <!-- 睦理 -->
+                            <div class="char-pane active" id="pane-mutsuri">
+                                <div class="char-meta text-gold">
+                                    <span>TS BEAUTY / OVERPOWERED ANOMALY</span>
+                                    <h3>佐部 睦理 (さほう むつり)</h3>
+                                </div>
+                                <p class="char-desc">元地球の男性。異世界で絶世の黒髪美女として目覚める。常に黒のパンツスーツ着用。視線を合わせたり触れたりするだけで対象を砂に変える恐るべきチート能力を持つが、極度の人間不信でビクビクしている。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">砂化の異能:</span> <span class="val rating text-gold">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">対人恐怖度:</span> <span class="val rating text-gold">★★★★★</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- 浜井 -->
+                            <div class="char-pane" id="pane-hamai">
+                                <div class="char-meta text-gold">
+                                    <span>SUBORDINATE / EARNEST YOUTH</span>
+                                    <h3>浜井 (はまい)</h3>
+                                </div>
+                                <p class="char-desc">睦理の部下。真面目で鋭い目つきの青年。緑色の冒険者用行動服をきっちり着こなす。睦理の実力を素直に慕っており、彼女の正体のバレそうな異常さに冷や汗をかく役。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">忠誠心:</span> <span class="val rating text-gold">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">真面目さ:</span> <span class="val rating text-gold">★★★★★</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 田橋 -->
+                            <div class="char-pane" id="pane-tabashi">
+                                <div class="char-meta text-gold">
+                                    <span>SUBORDINATE / MOHAWKお調子者</span>
+                                    <h3>田橋 (たばし)</h3>
+                                </div>
+                                <p class="char-desc">睦理の部下。派手なモヒカン頭に赤いタンクトップというラフな格好のお調子者。見た目は派手だがチームのムードメーカーであり、意外と現場のサポートもこなす。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">お調子者度:</span> <span class="val rating text-gold">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">モヒカン高:</span> <span class="val">18cm</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 愛河 -->
+                            <div class="char-pane" id="pane-aiga">
+                                <div class="char-meta text-gold">
+                                    <span>LOVER / PSYCHIC SUPPORT</span>
+                                    <h3>越知 愛河 (こえさと あいが)</h3>
+                                </div>
+                                <p class="char-desc">睦理の恋人。三白眼とそばかすが特徴の女性。情緒が不安定になりがちな睦理を優しく介抱し、精神的な拠り所となってくれる包容力の塊。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">包容力:</span> <span class="val rating text-gold">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">精神サポート:</span> <span class="val rating text-gold">★★★★★</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- セクション: 砂化コンソール -->
+                <section class="section-card border-red">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-eye"></i> SANDIFICATION CONSOLE (能力執行)</h2>
+                    </div>
+                    
+                    <div class="combat-board">
+                        <div class="combat-target">
+                            <span class="lbl-c">対峙する魔獣 (TARGET ENEMY):</span>
+                            <strong class="target-name" id="enemy-name">トリケラトプス風牙のイノシシ魔獣 (第5節)</strong>
+                            <span class="target-status text-gold" id="enemy-status">HEALTHY (健在)</span>
+                        </div>
+                        
+                        <div class="console-screen">
+                            <div class="console-flow" id="combat-flow">
+                                <p class="sys-msg">>> [FIELD] 朝浜市の鬱蒼とした森に突入。</p>
+                                <p class="sys-msg">>> 睦理: 「考え事をしてたのに……邪魔しないでよ」</p>
+                            </div>
+                        </div>
+                        
+                        <div class="combat-actions">
+                            <button class="combat-btn" id="btn-gaze-action"><i class="fa-solid fa-eye"></i> 視線集中：部分砂化</button>
+                            <button class="combat-btn disabled" id="btn-gouge-action"><i class="fa-solid fa-hand-fist"></i> 眼窩を抉る：脳砂化瞬殺</button>
+                        </div>
+                        
+                        <div class="exposure-status">
+                            <span class="lbl-c">周囲の冒険者の不審・正体発覚度:</span>
+                            <div class="meter-gauge">
+                                <div class="gauge-fill bg-orange" id="exposure-bar" style="width: 10%;"></div>
+                                <span class="gauge-val" id="exposure-txt">10% (通常状態)</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="tiger-footer">
+            <p class="archived-date">LOG_INDEX: #TIGER-0013 // PLANET THEOSPERA DATA ARCHIVE</p>
+            <div class="footer-actions">
+                <a href="../index.html" class="back-link-bottom"><i class="fa-solid fa-house-laptop"></i> DISCONNECT FIELD_NET</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

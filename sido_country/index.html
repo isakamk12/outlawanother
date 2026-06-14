@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シドの国 - 作品詳細 | ANTI-MORAL ARCHIVE</title>
+    <meta name="description" content="『シドの国』の作品レビュー。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景演出: コントラストの効いた漆黒壁面、使奴の角を模したシアン・赤の燐光、デジタルグリッド -->
+    <div class="apocalyptic-bg"></div>
+    <div class="red-horns-aura"></div>
+    <div class="digital-scan-grid"></div>
+
+    <div class="container">
+        <!-- 戻るボタン -->
+        <a href="../index.html" class="back-link-floating">
+            <i class="fa-solid fa-person-circle-exclamation"></i> EXIT SIDO_NET
+        </a>
+
+        <!-- 使奴ポストアポカリプスヘッダー -->
+        <header class="sido-header">
+            <div class="system-status-ticker">
+                <span class="ticker-text"><i class="fa-solid fa-biohazard"></i> CIVILIZATION: RUINED (POST 200 YEARS) // SPECIMEN: SIDO (使奴) // POPULATION: ESCAPING // GOAL: SIDO_COUNTRY</span>
+            </div>
+            
+            <div class="header-main-layout">
+                <div class="titles-block">
+                    <span class="threat-badge text-red"><i class="fa-solid fa-triangle-exclamation"></i> CLASSIFIED: REBEL HUMAN-MACHINES (狂気と法に抗う者たち)</span>
+                    <h1 class="novel-title">シドの国</h1>
+                </div>
+                
+                <!-- 使奴覚醒進捗モニター -->
+                <div class="monitor-panel" id="awakening-panel">
+                    <div class="panel-header">SIDO REBELLION (使奴覚醒・自立度)</div>
+                    <div class="panel-body">
+                        <div class="meter-gauge">
+                            <div class="gauge-fill bg-red" id="awaken-bar" style="width: 10%;"></div>
+                            <span class="gauge-val" id="awaken-pct">10%</span>
+                        </div>
+                        <div class="meter-meta">STATUS: <strong class="text-red" id="awaken-status">ENSLAVED (奴隷状態)</strong></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- メイングリッド -->
+        <main class="grid-layout">
+            <!-- 左カラム: あらすじ ＆ 世界観 -->
+            <div class="main-column">
+                
+                <!-- セクション: あらすじ -->
+                <section class="section-card border-white">
+                    <div class="card-header">
+                        <h2 class="section-title text-white"><i class="fa-solid fa-scroll"></i> APOCRYPHA: SUMMARY</h2>
+                        <span class="stamp-sido">使奴解放</span>
+                    </div>
+                    
+                    <div class="story-body">
+                        <h3 class="quote-header text-red">「理不尽な世界で『正義』と『悪』を問う、ポストアポカリプス・ファンタジー！」</h3>
+                        <p class="para">
+                            かつて旧文明の金持ちたちが、己の欲望を満たすためだけに作り出した愛玩用人造人間「使奴（シド）」。
+                            彼らは「真っ白な肌、真っ黒な白目、赤い角」という悪魔的な異形を持ち、理不尽に虐げられていた。
+                        </p>
+                        <p class="para">
+                            旧文明が滅びてから200年後、とある使奴（ハザクラ）の言葉によって解放された使奴たちと、時間壁によって現代に目覚めた人間の青年ラデックらが織りなすポストアポカリプス群像劇。
+                        </p>
+                        <p class="para">
+                            「笑顔による文明保安教会」や「ダクラシフ商工会」など、独自の法と狂気に支配された国々を旅しながら、主人公たちは悪党たちを容赦なく物理排除し、使奴が人として生きられる「シドの国」を目指して過酷な運命に立ち向かっていく。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- セクション: 各国エリアビューアー -->
+                <section class="section-card border-dark">
+                    <div class="card-header">
+                        <h2 class="section-title"><i class="fa-solid fa-map-location-dot"></i> WORLD REGIONS PREVIEW (エリア踏破ログ)</h2>
+                    </div>
+                    
+                    <div class="region-selector">
+                        <button class="reg-btn active" data-reg="doll">人形ラボ</button>
+                        <button class="reg-btn" data-reg="bomb">爆弾牧場</button>
+                        <button class="reg-btn" data-reg="casino">ダクラシフ</button>
+                        <button class="reg-btn" data-reg="wolf">狼王堂放送局</button>
+                    </div>
+
+                    <div class="region-display-box" id="region-viewer">
+                        <h4 id="reg-title">なんでも人形ラボラトリー</h4>
+                        <p id="reg-desc" class="para text-muted">
+                            昼間でも偽物の星空とイルミネーションが輝く、怪しくも煌びやかな歓楽街。使奴たちが愛玩用として今なお取引・酷使されている欲望の街。
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右カラム: キャラクター & 使奴覚醒コンソール -->
+            <div class="side-column">
+                
+                <!-- セクション: 人物ファイル -->
+                <section class="section-card border-red char-panel">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-users-gear"></i> SUBJECT FILES (使奴・生存人間調書)</h2>
+                    </div>
+                    
+                    <div class="char-tabs-layout">
+                        <div class="char-tab-list" id="char-tab-list">
+                            <button class="char-btn active" data-char="larva">ラルバ</button>
+                            <button class="char-btn" data-char="radek">ラデック</button>
+                            <button class="char-btn" data-char="happiness">ハピネス</button>
+                            <button class="char-btn" data-char="others">他・眷属</button>
+                        </div>
+                        
+                        <div class="char-content-wrapper" id="char-content">
+                            <!-- ラルバ -->
+                            <div class="char-pane active" id="pane-larva">
+                                <div class="char-meta text-red">
+                                    <span>SIDO / PHYSICAL COMBATANT</span>
+                                    <h3>ラルバ</h3>
+                                </div>
+                                <p class="char-desc">傍若無人で陽気な使奴。凄まじい肉体戦闘能力を誇り、使奴をいたぶる悪党たちを容赦なく物理的に処刑するチームの切り込み隊長。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">物理切断・打撃:</span> <span class="val rating text-red">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">悪党容赦度:</span> <span class="val rating text-red">★★★★★ (皆殺し)</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- ラデック -->
+                            <div class="char-pane" id="pane-radek">
+                                <div class="char-meta text-red">
+                                    <span>HUMAN / SPECIMEN FROM PAST</span>
+                                    <h3>ラデック</h3>
+                                </div>
+                                <p class="char-desc">使奴研究所から200年後の世界に目覚めた過去の人間。無機物を別物に変形させたり、自身の動体視力などを一時的に向上させる「改造」の異能を持つ。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">改造能力:</span> <span class="val rating text-red">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">動体視力強化:</span> <span class="val rating text-red">★★★★☆</span></div>
+                                </div>
+                            </div>
+
+                            <!-- ハピネス -->
+                            <div class="char-pane" id="pane-happiness">
+                                <div class="char-meta text-red">
+                                    <span>SIDO / FORMER KING & TACTICIAN</span>
+                                    <h3>ハピネス</h3>
+                                </div>
+                                <p class="char-desc">元「笑顔の国（保安教会）」の王（審神者）だった使奴。我が儘で文句が多いお姫様体質だが、卓越した頭脳と冷徹な策略を巡らせる天才軍師。</p>
+                                <div class="char-stats">
+                                    <div class="s-row"><span class="lbl">策略知略:</span> <span class="val rating text-red">★★★★★</span></div>
+                                    <div class="s-row"><span class="lbl">文句・我が儘:</span> <span class="val rating text-red">★★★★★</span></div>
+                                </div>
+                            </div>
+
+                            <!-- 他・眷属 -->
+                            <div class="char-pane" id="pane-others">
+                                <div class="char-meta text-red">
+                                    <span>REBEL CO-CONSPIRATORS</span>
+                                    <h3>ハザクラ、イチルギ、他</h3>
+                                </div>
+                                <div class="scroll-box">
+                                    <div class="sub-entry">
+                                        <strong>ハザクラ <span class="label text-red">解放の先導者</span></strong>
+                                        <p>声による洗脳の異能を持つ使奴。200年前に使奴たちを解放し、「シドの国」の建国を誰よりも望む信念のリーダー。</p>
+                                    </div>
+                                    <div class="sub-entry">
+                                        <strong>イチルギ <span class="label">元ギルド総帥</span></strong>
+                                        <p>世界ギルド「境界の門」の元総帥。責任感の強い真面目な使奴。変装が得意。</p>
+                                    </div>
+                                    <div class="sub-entry">
+                                        <strong>ゾウラ ＆ シスター <span class="label text-red">半皇太子 ＆ 魔導外科</span></strong>
+                                        <p>ゾウラはショテルを操る戦闘狂。シスターは他人の記憶を具現化する「記憶操作」を操る外科医。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- セクション: 使奴覚醒シミュレーター -->
+                <section class="section-card border-red">
+                    <div class="card-header">
+                        <h2 class="section-title text-red"><i class="fa-solid fa-yin-yang"></i> SIDO AWAKENING TERMINAL (使奴解放戦線)</h2>
+                    </div>
+                    
+                    <div class="awaken-board">
+                        <div class="console-screen">
+                            <div class="console-flow" id="awaken-flow">
+                                <p class="sys-msg">>> [SIDO_NET] 接続完了。愛玩用人造人間「使奴」データ検知。</p>
+                                <p class="sys-msg">>> 現状：笑顔の国および各地主君の支配下にあります。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="awaken-actions">
+                            <button class="awaken-btn" id="btn-awaken-hazakura"><i class="fa-solid fa-microphone"></i> ハザクラの声の洗脳（解放演説）</button>
+                            <button class="awaken-btn" id="btn-awaken-larva"><i class="fa-solid fa-gavel"></i> ラルバの物理処刑（悪党排除）</button>
+                            <button class="awaken-btn" id="btn-awaken-radek"><i class="fa-solid fa-wrench"></i> ラデックの動体視力改造</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- フッター -->
+        <footer class="sido-footer">
+            <p class="archived-date">SYSTEM_INDEX: #SIDO-0015 // FOR THE SOVEREIGN LAND OF SIDOS</p>
+            <div class="footer-actions">
+                <a href="../index.html" class="back-link-bottom"><i class="fa-solid fa-person-circle-exclamation"></i> DISCONNECT FROM SIDO_NET</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
