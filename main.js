@@ -476,8 +476,7 @@ function renderBookshelf() {
     if (filteredNovels.length === 0) {
         grid.innerHTML = `
             <div class="no-results">
-                <i class="fa-solid fa-bug"></i>
-                <p>MATCHING LOG NOT FOUND. 検索条件に合致する有害情報は検出されませんでした。</p>
+                <p>検索条件に合致する作品は見つかりませんでした。</p>
             </div>
         `;
         return;
@@ -485,7 +484,7 @@ function renderBookshelf() {
 
     filteredNovels.forEach(novel => {
         const card = document.createElement('article');
-        card.className = `novel-card risk-${novel.complianceRisk.toLowerCase()}`;
+        card.className = `novel-card`;
         
         // タグHTML
         const tagsHtml = novel.tags.map(tag => `<span class="card-tag">#${tag}</span>`).join('');
@@ -493,7 +492,6 @@ function renderBookshelf() {
         card.innerHTML = `
             <div class="card-header-accent"></div>
             <div class="card-header-meta">
-                <span class="card-risk-label">${novel.complianceRisk} RISK</span>
                 <span class="card-status-badge">${novel.status}</span>
             </div>
             <div class="card-body">
@@ -605,30 +603,9 @@ function openNovelModal(novel) {
     document.getElementById('modal-book-title-cover').textContent = novel.title;
     document.getElementById('modal-book-author-cover').textContent = novel.author;
 
-    // 危険度バッジのクラス調整
-    const riskBadge = document.getElementById('modal-risk-badge');
-    riskBadge.textContent = novel.complianceRisk;
-    riskBadge.className = `danger-badge ${novel.complianceRisk}`;
-
     // タグのレンダリング
     const tagsContainer = document.getElementById('modal-tags');
     tagsContainer.innerHTML = novel.tags.map(tag => `<span class="mini-tag">#${tag}</span>`).join('');
-
-    // ジョークパラメータの設定
-    const barEthics = document.getElementById('bar-ethics');
-    const barStimulation = document.getElementById('bar-stimulation');
-    const barChaos = document.getElementById('bar-chaos');
-
-    barEthics.style.width = '0%';
-    barStimulation.style.width = '0%';
-    barChaos.style.width = '0%';
-
-    document.getElementById('val-ethics').textContent = `${novel.ethicsLevel}%`;
-    document.getElementById('val-stimulation').textContent = `${novel.stimulation}%`;
-    document.getElementById('val-chaos').textContent = `${novel.chaosLevel}%`;
-
-    // AI判定文の挿入
-    document.getElementById('modal-ai-verdict').textContent = novel.aiVerdict;
 
     // 外部リンクボタンの設定
     const linkSection = document.getElementById('modal-link-section');
@@ -711,15 +688,7 @@ function openNovelModal(novel) {
     modal.offsetHeight; 
     modal.classList.add('active');
 
-    // 少しディレイを設けてパラメータを伸ばすアニメーションを発動
-    setTimeout(() => {
-        barEthics.style.width = `${novel.ethicsLevel}%`;
-        barStimulation.style.width = `${novel.stimulation}%`;
-        barChaos.style.width = `${novel.chaosLevel}%`;
-    }, 150);
 
-    // グリッチ演出を誘発
-    triggerGlitchEffect();
 }
 
 /**
@@ -739,35 +708,12 @@ function closeNovelModal() {
  * 偶発的に画面全体に一瞬ノイズ・グリッチを走らせる
  */
 function startRandomGlitches() {
-    setInterval(() => {
-        if (Math.random() < 0.25) { // 25%の確率で
-            triggerGlitchEffect();
-        }
-    }, 8000); // 8秒間隔
+    // 演出を削除
 }
 
 /**
  * 画面を一瞬赤くし、ログに警告を表示するグリッチ効果
  */
 function triggerGlitchEffect() {
-    const overlay = document.getElementById('glitch-overlay');
-    if (!overlay) return;
-
-    overlay.style.opacity = '1';
-    
-    // コンソールに隠しジョークメッセージを出力
-    const warningMessages = [
-        "WARNING: ETHICAL ENGINE OVERLOAD.",
-        "NOTICE: SYSTEM BYPASSED COMPLIANCE PROTOCOLS.",
-        "ALERT: ILLEGAL GENE RECOMBINATION DETECTED IN DATABANKS.",
-        "INFO: MORE SHACHIKU NO MORE.",
-        "ALERT: MESUGAKI LEVEL RISING SHARPLY.",
-        "CRITICAL: CONDUIT ERROR IN THREE-THOUSAND-BILLION-YEAR LOAN."
-    ];
-    const randomMsg = warningMessages[Math.floor(Math.random() * warningMessages.length)];
-    console.warn(`[ANTI-MORAL ARCHIVE] %c${randomMsg}`, "color: #ff2a5f; font-weight: bold; font-family: monospace;");
-
-    setTimeout(() => {
-        overlay.style.opacity = '0';
-    }, 120);
+    // 演出を削除
 }
