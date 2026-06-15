@@ -17,11 +17,39 @@ const state = {
 };
 
 /**
- * 全25作品のアーカイブデータ
+ * 全27作品のアーカイブデータ
  */
 const NOVEL_DATA = [
     {
         id: 1,
+        title: "チートスキル【完全理解】で異世界無双……しているはずなのに、女神の顔が思い出せない",
+        author: "邑沢 迅",
+        status: "完結",
+        tags: ["異世界", "ホラー", "クトゥルフ", "意味怖", "実存的恐怖"],
+        description: "ブラック企業に勤める平凡なサラリーマンが不運な事故で死亡し、最強の力を手に入れた「勇者」として異世界へ。しかし、これは彼が世界の「真実」にたどり着くまでの物語。意味が分かると怖いクトゥルフホラー。",
+        ethicsLevel: 85,
+        stimulation: 80,
+        chaosLevel: 88,
+        complianceRisk: "SR",
+        aiVerdict: "「完全理解」のチートスキルが世界の異質な真実（クトゥルフ的怪異）を捉えてしまったため、深刻な精神汚染が検出されました。SAN値の低下に注意してください。",
+        url: "https://kakuyomu.jp/works/822139846516046626"
+    },
+    {
+        id: 2,
+        title: "勇者バローはマイバッグ持参で無双します。",
+        author: "草加八幡次郎ボロ家＠リア充爆発しろ",
+        status: "連載中",
+        tags: ["ファンタジー", "無双", "コメディ", "マジックバッグ", "ミニマリスト"],
+        description: "期待を裏切らない王道展開を追求したテンプレ習作。ミニマリストの主人公が,マジックバッグ（ストレージ）だけを武器にドラゴンも魔王も倒す（？）無双劇。暴力はすべてを解決する。",
+        ethicsLevel: 65,
+        stimulation: 70,
+        chaosLevel: 75,
+        complianceRisk: "R",
+        aiVerdict: "マジックバッグを武器に用いた質量攻撃による暴力解決法。比較的シンプルな構造ですが、物理的攻撃力が過大評価されています。",
+        url: "https://kakuyomu.jp/works/16818093076848248355"
+    },
+    {
+        id: 3,
         title: "親ガチャEランクの俺は遺伝子ランクSSRの妹達と禁断の子孫繁栄をする。",
         author: "伊阪 証",
         status: "新作",
@@ -35,7 +63,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051601972870741"
     },
     {
-        id: 2,
+        id: 4,
         title: "メンヘラ×カリスマ",
         author: "伊阪 証",
         status: "連載中",
@@ -49,7 +77,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051597669296069"
     },
     {
-        id: 3,
+        id: 5,
         title: "追放者ギルドから追放されました。",
         author: "伊阪 証",
         status: "連載中",
@@ -63,7 +91,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051601211056601"
     },
     {
-        id: 4,
+        id: 6,
         title: "俺だけレベルダウンな件",
         author: "伊阪 証",
         status: "連載中",
@@ -77,7 +105,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051601206460966"
     },
     {
-        id: 5,
+        id: 7,
         title: "代行少女は愉悦を浴びる",
         author: "堀乃す",
         status: "完結済",
@@ -91,7 +119,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/16818792438327230123"
     },
     {
-        id: 6,
+        id: 8,
         title: "天界を追放されたので辺境国家で内政します ～崩壊寸前の流刑地を見捨てられた犯罪者たちの才能と時間遡行スキルで内政してたら、いつの間にか最強国家になってました～",
         author: "しぐま",
         status: "完結",
@@ -105,7 +133,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051595863047391"
     },
     {
-        id: 7,
+        id: 9,
         title: "メスガキくえすと♡２～あくどいメスガキども～",
         author: "伊勢池ヨシヲ",
         status: "連載中",
@@ -119,7 +147,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/16818023213689907598"
     },
     {
-        id: 8,
+        id: 10,
         title: "不死の国のアリス",
         author: "幽幻乃 紫",
         status: "連載中",
@@ -133,7 +161,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051600471596933"
     },
     {
-        id: 9,
+        id: 11,
         title: "最終ファンタジー",
         author: "攻撃",
         status: "連載中",
@@ -147,7 +175,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051598106597530"
     },
     {
-        id: 10,
+        id: 12,
         title: "異世界転生したら、世界の敵になりました。",
         author: "篠原 凛翔",
         status: "連載中",
@@ -161,7 +189,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051598702153106"
     },
     {
-        id: 11,
+        id: 13,
         title: "婚約者といちゃつく奴を注意したら決闘となり敗北～すべてを失った男の物語",
         author: "@boss0327",
         status: "連載中",
@@ -175,7 +203,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051601883355931"
     },
     {
-        id: 12,
+        id: 14,
         title: "愛するおばあちゃんが死んで以来、何度殺しても死ねないボクは、毒魔法とかいろいろ強過ぎて向こうが死にまくるけど、死ねない理由が知りたい！〜『トリプルマジックストリート 第一部』外伝",
         author: "霜月二十三",
         status: "連載中",
@@ -189,7 +217,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/16817330654478632679"
     },
     {
-        id: 13,
+        id: 15,
         title: "いっそ私が虎ならば",
         author: "鷹丘 文京",
         status: "連載中",
@@ -203,7 +231,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051596709629758"
     },
     {
-        id: 14,
+        id: 16,
         title: "役立たずアラサーおじさん、探偵の凄みで異世界無双する",
         author: "馬です",
         status: "連載中",
@@ -217,7 +245,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051599306801962"
     },
     {
-        id: 15,
+        id: 17,
         title: "シドの国",
         author: "×90",
         status: "連載中",
@@ -231,7 +259,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/1177354055263931789"
     },
     {
-        id: 16,
+        id: 18,
         title: "世説新鬼 —神のゴミを拾う男—",
         author: "仔猫（コネコ）",
         status: "連載中",
@@ -245,7 +273,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/822139844796971423"
     },
     {
-        id: 17,
+        id: 19,
         title: "召喚事故ったから相談乗って！",
         author: "味噌煮込みポン酢",
         status: "連載中",
@@ -259,7 +287,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051601237676141"
     },
     {
-        id: 18,
+        id: 20,
         title: "常闇（とこやみ）の女神 ー目指せ、俺の大神殿！ー",
         author: "山口遊子",
         status: "連載中",
@@ -273,7 +301,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/1177354055372628058"
     },
     {
-        id: 19,
+        id: 21,
         title: "アンチヒーロー・ディストラクション -成り代わりシリアルキラーは異世界でも愉しみたい-",
         author: "ゆつみ かける",
         status: "連載中",
@@ -287,7 +315,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/16818792436069960405"
     },
     {
-        id: 20,
+        id: 22,
         title: "前世が地獄過ぎた善良凡人、女尊男卑な貞操逆転異世界で成り上がり無双＆愛が重い美少女達との種馬生活というご褒美が待っていた。",
         author: "下等妙人",
         status: "連載中",
@@ -301,7 +329,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051600874440454"
     },
     {
-        id: 21,
+        id: 23,
         title: "死にモブが生き残るためのヤンデレ理論 〜好意を搾取して最強になったはいいが、ヤンデレたちの狂気が常に俺の背後で火花を散らしている〜",
         author: "マッソー！",
         status: "毎日更新中！",
@@ -315,7 +343,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051600703642492"
     },
     {
-        id: 22,
+        id: 24,
         title: "No More 社畜人生！ドアマット聖女ヒロインなんてお断りです",
         author: "志熊みゅう",
         status: "連載中",
@@ -329,7 +357,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051601660426641"
     },
     {
-        id: 23,
+        id: 25,
         title: "開始５分でサービス終了した伝説 of バグゲーに転生したんだが攻略できない！",
         author: "那須儒一",
         status: "連載中",
@@ -343,7 +371,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/2912051601335714573"
     },
     {
-        id: 24,
+        id: 26,
         title: "厄災の魔法少女",
         author: "キムオタ",
         status: "連載中",
@@ -357,7 +385,7 @@ const NOVEL_DATA = [
         url: "https://kakuyomu.jp/works/16818792439433125980"
     },
     {
-        id: 25,
+        id: 27,
         title: "不良債権ダンジョンと借金三千億年から始まる魔王討伐記",
         author: "伊阪 証",
         status: "連載中",
@@ -630,50 +658,86 @@ function openNovelModal(novel) {
         
         // 詳細レビュー報告書ボタン (特設詳細ページがあるIDに対応)
         if (reviewBtn) {
-            if (novel.id === 25) {
+            if (novel.id === 27) {
                 reviewBtn.href = './debt_dungeon/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 24) {
+            } else if (novel.id === 26) {
                 reviewBtn.href = './disaster_girl/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 23) {
+            } else if (novel.id === 25) {
                 reviewBtn.href = './bug_game/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 22) {
+            } else if (novel.id === 24) {
                 reviewBtn.href = './shachiku_saint/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 21) {
+            } else if (novel.id === 23) {
                 reviewBtn.href = './yandere_theory/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 20) {
+            } else if (novel.id === 22) {
                 reviewBtn.href = './reverse_harem/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 19) {
+            } else if (novel.id === 21) {
                 reviewBtn.href = './anti_hero/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 18) {
+            } else if (novel.id === 20) {
                 reviewBtn.href = './dark_goddess/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 17) {
+            } else if (novel.id === 19) {
                 reviewBtn.href = './summon_accident/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 16) {
+            } else if (novel.id === 18) {
                 reviewBtn.href = './shinsetsu_shinki/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 15) {
+            } else if (novel.id === 17) {
                 reviewBtn.href = './sido_country/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 14) {
+            } else if (novel.id === 16) {
                 reviewBtn.href = './detective_uncle/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 13) {
+            } else if (novel.id === 15) {
                 reviewBtn.href = './if_tiger/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 12) {
+            } else if (novel.id === 14) {
                 reviewBtn.href = './immortal_doctor/index.html';
                 reviewBtn.style.display = 'flex';
-            } else if (novel.id === 11) {
+            } else if (novel.id === 13) {
                 reviewBtn.href = './lost_everything/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 12) {
+                reviewBtn.href = './world_enemy/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 11) {
+                reviewBtn.href = './last_fantasy/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 10) {
+                reviewBtn.href = './immortal_alice/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 9) {
+                reviewBtn.href = './mesugaki_quest/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 8) {
+                reviewBtn.href = './frontier_governance/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 7) {
+                reviewBtn.href = './proxy_girl/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 6) {
+                reviewBtn.href = './level_down/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 5) {
+                reviewBtn.href = './exile_guild/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 4) {
+                reviewBtn.href = './menhera_charisma/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 3) {
+                reviewBtn.href = './parent_gacha/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 2) {
+                reviewBtn.href = './bag_hero/index.html';
+                reviewBtn.style.display = 'flex';
+            } else if (novel.id === 1) {
+                reviewBtn.href = './cheat_understanding/index.html';
                 reviewBtn.style.display = 'flex';
             } else {
                 reviewBtn.removeAttribute('href');

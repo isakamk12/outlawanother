@@ -1,19 +1,19 @@
 /* ==========================================================================
-   STYLE SHEET: IMMORTAL DOCTOR (何度殺しても死ねないボクは...)
+   STYLE SHEET: WORLD ENEMY (世界の敵)
    - Clean Editorial / Review Article Version -
    ========================================================================== */
 
 :root {
-    --bg-base: #050207;         /* 漆黒 */
-    --bg-card: #12051a;         /* 深紫色 */
-    --bg-highlight: #190a24;    /* 明るめの深紫色 */
-    --border-color: #2b003a;    /* 境界線・深紫 */
+    --bg-base: #060507;         /* 漆黒の闇 */
+    --bg-card: #111013;         /* 暗いグレー */
+    --bg-highlight: #18161a;    /* やや明るめの暗灰色 */
+    --border-color: #2c2533;    /* 境界線 */
     
-    --neon-pink: #ff69b4;       /* 蛍光ピンク */
-    --pink-light: #ffb6c1;      /* 淡い桃色 */
-    
-    --text-main: #f5edf6;       /* 読みやすいピンクがかった白 */
-    --text-muted: #a496ad;      /* くすんだ薄紫グレー */
+    /* 極彩色の不死鳥の炎をイメージしたグラデーション定義 */
+    --phoenix-grad: linear-gradient(135deg, #ff0055 0%, #ffbb00 35%, #00ffaa 70%, #9900ff 100%);
+    --neon-purple: #b82eff;     
+    --text-main: #ebe6ef;       
+    --text-muted: #968fa0;      
     
     --font-serif: 'Noto Serif JP', serif;
     --font-sans: 'Noto Sans JP', sans-serif;
@@ -35,7 +35,7 @@ body {
     padding-bottom: 80px;
 }
 
-/* 背景エフェクト（毒魔法や業の黒い霧をイメージした淡いグラデーション） */
+/* 不死鳥の極彩色の炎をイメージした背景効果 */
 .bg-scroll-effect {
     position: fixed;
     top: 0;
@@ -43,15 +43,15 @@ body {
     width: 100vw;
     height: 100vh;
     background: 
-        radial-gradient(circle at 10% 20%, rgba(43, 0, 58, 0.6) 0%, transparent 60%),
-        radial-gradient(circle at 90% 80%, rgba(255, 105, 180, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 10% 20%, rgba(184, 46, 255, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 50%),
         linear-gradient(var(--bg-base), var(--bg-base));
     pointer-events: none;
     z-index: -1;
 }
 
 .container {
-    max-width: 840px; /* 記事として最も読みやすい幅に設定 */
+    max-width: 840px;
     margin: 0 auto;
     padding: 40px 24px;
 }
@@ -74,7 +74,7 @@ body {
 }
 
 .back-link:hover {
-    color: var(--neon-pink);
+    color: var(--neon-purple);
 }
 
 /* 記事ヘッダー */
@@ -94,12 +94,12 @@ body {
 }
 
 .compliance-risk {
-    color: var(--neon-pink);
+    color: #ff3366;
     font-weight: bold;
-    border: 1px solid var(--neon-pink);
+    border: 1px solid #ff3366;
     padding: 1px 6px;
     border-radius: 3px;
-    background-color: rgba(255, 105, 180, 0.05);
+    background-color: rgba(255, 51, 102, 0.05);
 }
 
 .author, .status {
@@ -118,7 +118,7 @@ body {
 }
 
 .ai-verdict-box {
-    background-color: rgba(18, 5, 26, 0.8);
+    background-color: rgba(20, 19, 22, 0.8);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 15px 20px;
@@ -127,7 +127,7 @@ body {
 }
 
 .ai-verdict-box strong {
-    color: var(--neon-pink);
+    color: #ff3366;
     display: block;
     margin-bottom: 5px;
 }
@@ -148,10 +148,22 @@ body {
 .section-heading {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--pink-light);
+    color: var(--text-main);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
     margin-bottom: 10px;
+    position: relative;
+}
+
+/* 極彩色アンダーライン */
+.section-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: var(--phoenix-grad);
 }
 
 .section-body {
@@ -176,7 +188,7 @@ body {
 
 .sub-block h3 {
     font-size: 1.15rem;
-    color: var(--pink-light);
+    color: #fff;
     font-weight: 700;
 }
 
@@ -190,7 +202,7 @@ body {
 
 .highlight-box h3 {
     margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+    border-bottom: 1px solid rgba(184, 46, 255, 0.2);
     padding-bottom: 5px;
 }
 
@@ -208,13 +220,13 @@ body {
 }
 
 .highlight-box li strong {
-    color: var(--neon-pink);
+    color: var(--text-main);
 }
 
 .highlight-box li::before {
     content: "◆";
     font-size: 0.7rem;
-    color: var(--neon-pink);
+    color: var(--neon-purple);
     position: absolute;
     left: 0;
     top: 2px;
@@ -248,11 +260,11 @@ body {
     font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: bold;
-    color: var(--neon-pink);
-    border: 1px solid var(--neon-pink);
+    color: #ff3366;
+    border: 1px solid #ff3366;
     padding: 1px 6px;
     border-radius: 3px;
-    background-color: rgba(255, 105, 180, 0.05);
+    background-color: rgba(255, 51, 102, 0.05);
 }
 
 .char-name {
@@ -265,14 +277,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.char-trait, .char-madness {
-    font-size: 1rem;
-}
-
-.char-body strong {
-    color: var(--pink-light);
 }
 
 /* ベストバウト */
@@ -297,8 +301,8 @@ body {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: bold;
-    color: var(--neon-pink);
-    border: 1px solid var(--neon-pink);
+    color: var(--neon-purple);
+    border: 1px solid var(--neon-purple);
     padding: 1px 6px;
     border-radius: 3px;
 }
